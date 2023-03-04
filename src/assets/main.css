@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.bg-color {
+  background: linear-gradient(to bottom, #8c3af9, #58259e) !important;
+}
+.text-color {
+  background: -webkit-linear-gradient(
+    0deg,
+    #58259e 0%,
+    #58259e 27%,
+    #8c3af9 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+button.bg-color:hover {
+  background: #fff !important;
+  color: #58259e;
+  outline: 1px solid #58259e;
+}
