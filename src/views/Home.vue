@@ -4,6 +4,8 @@ import About from "@/components/About/About.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import Services from "@/components/Services/Services.vue";
 import Portfolio from "@/components/Portfolio/Portfolio.vue";
+import Team from "@/components/Team/Team.vue";
+import Contact from "@/components/Contact/Contact.vue";
 </script>
 
 <template>
@@ -11,6 +13,8 @@ import Portfolio from "@/components/Portfolio/Portfolio.vue";
   <About />
   <Services />
   <Portfolio />
+  <Team />
+  <Contact />
   <Footer />
 </template>
 

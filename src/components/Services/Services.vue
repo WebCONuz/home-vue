@@ -1,7 +1,7 @@
 <script setup>
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import cardImg from "../../assets/images/service/bot.png";
+import cardImg from "@/assets/images/service/bot.png";
 
 import "swiper/css";
 import "swiper/css/navigation";
