@@ -1,4 +1,46 @@
-<script setup></script>
+<script setup>
+import { onMounted } from "vue";
+
+function clickNavLink(e) {
+  const sidebarLinks = document.querySelectorAll(".aside-list > a");
+  sidebarLinks.forEach((item) => {
+    item.classList.remove("w-[25px]", "h-[25px]", "text-[#58259e]");
+    item.classList.add("w-[12px]", "h-[12px]", "text-white");
+  });
+  e.target.classList.remove("w-[12px]", "h-[12px]", "text-white");
+  e.target.classList.add("w-[25px]", "h-[25px]", "text-[#58259e]");
+}
+
+function scrollSidebar() {
+  const sectionAll = document.querySelectorAll("section[id]");
+  const scrollY = window.pageYOffset;
+  sectionAll.forEach((item) => {
+    const sectionHeight = item.offsetHeight;
+    const sectionTop = item.offsetTop - 100;
+    const sectionId = item.getAttribute("id");
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      // PC ----
+      const pcLink = document.querySelector(
+        ".aside-list > a[href*=" + sectionId + "]"
+      );
+
+      const sidebarLinks = document.querySelectorAll(".aside-list > a");
+      sidebarLinks.forEach((item) => {
+        item.classList.remove("w-[25px]", "h-[25px]", "text-[#58259e]");
+        item.classList.add("w-[12px]", "h-[12px]", "text-white");
+      });
+      pcLink.classList.add("w-[25px]", "h-[25px]", "text-[#58259e]");
+      pcLink.classList.remove("w-[12px]", "h-[12px]", "text-white");
+    }
+  });
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", () => {
+    scrollSidebar();
+  });
+});
+</script>
 
 <template>
   <aside
@@ -13,30 +55,36 @@
     <div class="aside-list flex flex-col items-center">
       <a
         href="#intro"
-        class="bg-[white] w-[25px] h-[25px] text-xs text-[#58259e] rounded-full mb-[10px] flex items-center justify-center duration-100"
+        @click="clickNavLink"
+        class="bg-[white] w-[25px] h-[25px] text-[#58259e] text-xs rounded-full mb-[10px] flex items-center justify-center duration-100"
         >1</a
       >
       <a
         href="#about"
+        @click="clickNavLink"
         class="bg-white w-[12px] h-[12px] text-xs text-white rounded-full mb-[10px] flex items-center justify-center duration-100"
         >2</a
       >
       <a
         href="#service"
+        @click="clickNavLink"
         class="bg-white w-[12px] h-[12px] text-xs text-white rounded-full mb-[10px] flex items-center justify-center duration-100"
         >3</a
       >
       <a
+        @click="clickNavLink"
         href="#portfolio"
         class="bg-white w-[12px] h-[12px] text-xs text-white rounded-full mb-[10px] flex items-center justify-center duration-100"
         >4</a
       >
       <a
+        @click="clickNavLink"
         href="#team"
         class="bg-white w-[12px] h-[12px] text-xs text-white rounded-full mb-[10px] flex items-center justify-center duration-100"
         >5</a
       >
       <a
+        @click="clickNavLink"
         href="#contact"
         class="bg-white w-[12px] h-[12px] text-xs text-white rounded-full mb-[10px] flex items-center justify-center duration-100"
         >6</a

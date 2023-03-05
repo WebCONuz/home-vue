@@ -21,15 +21,18 @@ function showMenu() {
   isOpenMenu.value = !isOpenMenu.value;
   isOpenLang.value = false;
 }
+function scrollHeader() {
+  if (window.scrollY === 0) {
+    scrolling.value = false;
+  } else {
+    scrolling.value = true;
+  }
+}
 
 onMounted(() => {
-  window.onscroll = () => {
-    if (window.scrollY === 0) {
-      scrolling.value = false;
-    } else {
-      scrolling.value = true;
-    }
-  };
+  window.addEventListener("scroll", () => {
+    scrollHeader();
+  });
 });
 </script>
 
@@ -37,8 +40,8 @@ onMounted(() => {
   <header
     ref="navbar"
     :class="{
-      'bg-white py-4': scrolling,
-      'bg-white': isOpenMenu,
+      'bg-white py-4 shadow-md': scrolling,
+      'bg-white shadow-md': isOpenMenu,
       'py-6': !scrolling,
     }"
     class="header w-full sticky top-0 left-0 z-20 duration-200"
