@@ -8,7 +8,6 @@ import eng from "../../assets/images/eng.png";
 import rus from "../../assets/images/rus.png";
 import uzb from "../../assets/images/uzb.png";
 
-const navbar = ref("");
 const isOpenLang = ref(false);
 const isOpenMenu = ref(false);
 const scrolling = ref(false);
@@ -38,7 +37,6 @@ onMounted(() => {
 
 <template>
   <header
-    ref="navbar"
     :class="{
       'bg-white py-4 shadow-md': scrolling,
       'bg-white shadow-md': isOpenMenu,
@@ -49,7 +47,7 @@ onMounted(() => {
     <div class="container">
       <div class="flex items-center sm:items-center justify-between">
         <!-- logo -->
-        <a href="#intro" class="logo">
+        <a href="/#intro" class="logo">
           <h2 class="flex items-baseline">
             <img :src="logoImg" alt="logo" class="w-[30px] sm:w-8" />
             <span
@@ -122,42 +120,42 @@ onMounted(() => {
             >
               <li>
                 <a
-                  href="#intro"
+                  href="/#intro"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
                   >Home</a
                 >
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="/#about"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
                   >About us</a
                 >
               </li>
               <li>
                 <a
-                  href="#service"
+                  href="/#service"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
                   >Services</a
                 >
               </li>
               <li>
                 <a
-                  href="#portfolio"
+                  href="/#portfolio"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
                   >Portfolio</a
                 >
               </li>
               <li>
                 <a
-                  href="#team"
+                  href="/#team"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
-                  >team & News</a
+                  >Our Team</a
                 >
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
                   >Contact</a
                 >
