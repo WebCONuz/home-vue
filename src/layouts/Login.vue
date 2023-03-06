@@ -1,10 +1,8 @@
 <script setup>
 import Footer from "@/components/Footer/Footer.vue";
-import Header from "@/components/Header/Header.vue";
 </script>
 
 <template>
-  <Header />
   <main class="main">
     <div
       class="container min-h-[76vh] flex flex-col items-center justify-center"
@@ -42,6 +40,13 @@ import Header from "@/components/Header/Header.vue";
           />
         </div>
       </form>
+      <div class="text-center py-6">
+        <router-link
+          to="/"
+          class="text-lg text-gray-400 hover:text-gray-900 duration-200"
+          >Bosh sahifaga qaytish</router-link
+        >
+      </div>
     </div>
   </main>
   <Footer />
@@ -49,6 +54,6 @@ import Header from "@/components/Header/Header.vue";
 
 <style scoped>
 .main {
-  min-height: calc(100vh - 77px - 91px);
+  min-height: calc(100vh - 77px);
 }
 </style>
