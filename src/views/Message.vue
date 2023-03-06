@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import MessageRow from "@/ui/MessageRow/MessageRow.vue";
+</script>
 
 <template>
   <div class="px-4">
@@ -19,58 +21,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="border border-slate-300 p-2">1</td>
-          <td class="border border-slate-300 p-2">Kamol Latipov</td>
-          <td class="border border-slate-300 p-2">kamol@gmail.com</td>
-          <td class="border border-slate-300 p-2">+998995463641</td>
-          <td class="border border-slate-300 p-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed omnis,
-            debitis id eligendi recusandae vitae, temporibus, quo voluptate qui
-            commodi repellendus? Repellat consectetur laudantium labore!
-          </td>
-          <td class="border border-slate-300 p-2 text-center">
-            <button
-              class="border border-red-500 text-red-500 py-1 px-2 text-sm rounded-md duration-200 hover:bg-red-500 hover:text-white"
-            >
-              <i class="bx bx-trash text-xl"></i>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-slate-300 p-2">2</td>
-          <td class="border border-slate-300 p-2">Abdulla Egamov</td>
-          <td class="border border-slate-300 p-2">abdulla@gmail.com</td>
-          <td class="border border-slate-300 p-2">+998901002352</td>
-          <td class="border border-slate-300 p-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed omnis!
-          </td>
-          <td class="border border-slate-300 p-2 text-center">
-            <button
-              class="border border-red-500 text-red-500 py-1 px-2 text-sm rounded-md duration-200 hover:bg-red-500 hover:text-white"
-            >
-              <i class="bx bx-trash text-xl"></i>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-slate-300 p-2">1</td>
-          <td class="border border-slate-300 p-2">Jahongirjon toshtemirov</td>
-          <td class="border border-slate-300 p-2">joxa@gmail.com</td>
-          <td class="border border-slate-300 p-2">+998955001010</td>
-          <td class="border border-slate-300 p-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed omnis,
-            debitis id eligendi recusandae vitae, temporibus, quo voluptate qui
-            commodi repellendus? Repellat consectetur laudantium labore!
-          </td>
-          <td class="border border-slate-300 p-2 text-center">
-            <button
-              class="border border-red-500 text-red-500 py-1 px-2 text-sm rounded-md duration-200 hover:bg-red-500 hover:text-white"
-            >
-              <i class="bx bx-trash text-xl"></i>
-            </button>
-          </td>
-        </tr>
+        <MessageRow
+          :id="1"
+          name="Kamol Latipov"
+          email="kamol@gmail.com"
+          phone="+998995463641"
+          message="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+        />
       </tbody>
     </table>
   </div>
