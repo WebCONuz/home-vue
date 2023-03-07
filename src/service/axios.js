@@ -1,4 +1,4 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://www.themealdb.com/api/json/v1/1";
+axios.defaults.baseURL = "http://localhost:5000";
 export default axios;

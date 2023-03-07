@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between mb-4">
     <h2 class="py-5 text-2xl font-bold text-center text-violet-700 capitalize">
       {{ props.title }}
     </h2>

@@ -1,7 +1,17 @@
 <script setup>
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
+
 import serviceImg from "../assets/images/service/crm.png";
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import ServiceRow from "../ui/ServiceRow/ServiceRow.vue";
+
+const { state } = useStore();
+const store = useStore();
+
+onMounted(() => {
+  store.dispatch("fetchServices");
+});
 </script>
 
 <template>
@@ -25,12 +35,13 @@ import ServiceRow from "../ui/ServiceRow/ServiceRow.vue";
       </thead>
       <tbody>
         <ServiceRow
-          id="1"
-          title="CRM"
-          text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed omnis, debitis id eligendi recusandae vitae, temporibus, quo voluptate qui commodi repellendus? Repellat consectetur laudantium labore!"
-          :imgUrl="serviceImg"
-          lang="uz"
-          :active="true"
+          v-for="(item, index) in state.getServices.services"
+          :id="index + 1"
+          :title="item.title"
+          :text="item.description"
+          :imgUrl="'http://localhost:5000/' + item.img_url"
+          :lang="item.lang"
+          :active="item.is_active"
         />
       </tbody>
     </table>
