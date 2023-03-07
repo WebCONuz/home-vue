@@ -47,7 +47,7 @@ onMounted(() => {
     class="fixed z-30 w-[53px] lg:w-[60px] xl:w-[66px] bg-color text-white h-[80vh] left-0 top-[90px] rounded-r-[40px] py-12 flex-col justify-between items-center hidden md:flex"
   >
     <a
-      href="#"
+      href="tel:+998990010201"
       class="w-[37px] h-[37px] lg:w-[42px] lg:h-[42px] xl:w-[45px] xl:h-[45px] rounded-xl lg:rounded-2xl bg-white flex justify-center items-center text-[#58259e] shadow-md"
     >
       <i class="bx bxs-phone text-2xl"></i>

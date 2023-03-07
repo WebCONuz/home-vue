@@ -1,14 +1,11 @@
 <script setup>
+import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import AdminRow from "@/ui/AdminRow/AdminRow.vue";
 </script>
 
 <template>
   <div class="px-4">
-    <h2
-      class="pt-8 pb-6 text-3xl font-bold text-center text-violet-600 capitalize"
-    >
-      All Admins
-    </h2>
+    <AdminTitle link="/admin/add" title="All Admins" btnText="Add Admin" />
     <table id="service" class="table-auto border border-slate-400 w-full">
       <thead>
         <tr>

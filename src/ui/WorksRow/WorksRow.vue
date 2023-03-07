@@ -29,12 +29,6 @@ const props = defineProps({
     </td>
     <td class="border border-slate-300 p-2 text-center">
       <div class="flex">
-        <router-link
-          to="/admin/works/add"
-          class="border border-green-500 text-green-500 py-1 px-2 text-sm rounded-md duration-200 hover:bg-green-500 hover:text-white"
-        >
-          <i class="bx bx-message-square-add text-xl"></i>
-        </router-link>
         <button
           class="border border-blue-500 text-blue-500 py-1 px-2 text-sm mx-2 rounded-md duration-200 hover:bg-blue-500 hover:text-white"
         >

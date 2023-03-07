@@ -1,16 +1,17 @@
 <script setup>
 import WorksRow from "../ui/WorksRow/WorksRow.vue";
+import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import pcWork from "@/assets/images/portfolio/pc_work1.jpg";
 import mobileWork from "../assets/images/portfolio/mobile_work1.jpg";
 </script>
 
 <template>
   <div class="px-4">
-    <h2
-      class="pt-8 pb-6 text-3xl font-bold text-center text-violet-600 uppercase"
-    >
-      Portfolio
-    </h2>
+    <AdminTitle
+      link="/admin/works/add"
+      title="Portfolio"
+      btnText="Add new work"
+    />
     <table id="Portfolio" class="table-auto border border-slate-400 w-full">
       <thead>
         <tr>

@@ -1,15 +1,16 @@
 <script setup>
 import teamImg from "@/assets/images/man.png";
+import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import TeamRouter from "@/ui/TeamRow/TeamRow.vue";
 </script>
 
 <template>
   <div class="px-4">
-    <h2
-      class="pt-8 pb-6 text-3xl font-bold text-center text-violet-600 uppercase"
-    >
-      Our Team
-    </h2>
+    <AdminTitle
+      link="/admin/team/add"
+      title="Our Team"
+      btnText="Add Team member"
+    />
     <table id="Portfolio" class="table-auto border border-slate-400 w-full">
       <thead>
         <tr>

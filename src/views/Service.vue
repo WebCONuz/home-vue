@@ -1,15 +1,16 @@
 <script setup>
 import serviceImg from "../assets/images/service/crm.png";
+import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import ServiceRow from "../ui/ServiceRow/ServiceRow.vue";
 </script>
 
 <template>
   <div class="px-4">
-    <h2
-      class="pt-8 pb-6 text-3xl font-bold text-center text-violet-600 capitalize"
-    >
-      Services
-    </h2>
+    <AdminTitle
+      link="/admin/service/add"
+      title="Services"
+      btnText="Add Service"
+    />
     <table id="service" class="table-auto border border-slate-400 w-full">
       <thead>
         <tr>

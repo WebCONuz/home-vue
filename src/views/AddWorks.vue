@@ -2,15 +2,17 @@
 
 <template>
   <div class="container min-h-screen flex flex-col items-center justify-center">
-    <h1 class="text-center mb-2 text-3xl font-semibold text-violet-700">
-      Add new Work
-    </h1>
-    <router-link
-      to="/admin/works"
-      class="block text-center text-gray-400 hover:text-gray-800 duration-200 mb-4"
-    >
-      All Works
-    </router-link>
+    <div class="flex justify-between items-center w-[55%] mb-6">
+      <h1 class="text-center text-2xl font-semibold text-violet-700">
+        Add new Work
+      </h1>
+      <router-link
+        to="/admin/works"
+        class="block hover:bg-gray-600 py-2 px-5 rounded-[25px] duration-200 bg-gray-400 text-white"
+      >
+        All Works
+      </router-link>
+    </div>
     <form action="" class="block sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[55%]">
       <div class="w-full p-4 bg-gray-200 rounded-lg">
         <label for="title" class="block w-full mb-4">
