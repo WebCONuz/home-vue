@@ -4,8 +4,7 @@ const props = defineProps({
   name: String,
   descr: String,
   imgUrl: String,
-  phone: String,
-  email: String,
+  job: String,
   lang: String,
 });
 </script>
@@ -18,8 +17,7 @@ const props = defineProps({
     <td class="border border-slate-300 p-2 text-center">
       <img :src="props.imgUrl" alt="avatar" class="w-10 inline-block" />
     </td>
-    <td class="border border-slate-300 p-2 text-center">{{ props.phone }}</td>
-    <td class="border border-slate-300 p-2 text-center">{{ props.email }}</td>
+    <td class="border border-slate-300 p-2 text-center">{{ props.job }}</td>
     <td class="border border-slate-300 p-2 text-center">
       <span
         class="inline-block py-1 px-3 text-sm rounded-xl bg-blue-500 text-white"

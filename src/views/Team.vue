@@ -1,7 +1,7 @@
 <script setup>
 import teamImg from "@/assets/images/man.png";
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
-import TeamRouter from "@/ui/TeamRow/TeamRow.vue";
+import TeamRow from "@/ui/TeamRow/TeamRow.vue";
 </script>
 
 <template>
@@ -18,20 +18,18 @@ import TeamRouter from "@/ui/TeamRow/TeamRow.vue";
           <th class="border border-slate-300 p-2">Full name</th>
           <th class="border border-slate-300 p-2">description</th>
           <th class="border border-slate-300 p-2">Avatar image</th>
-          <th class="border border-slate-300 p-2">Phone</th>
-          <th class="border border-slate-300 p-2">Email</th>
+          <th class="border border-slate-300 p-2">Job</th>
           <th class="border border-slate-300 p-2">Lang</th>
           <th class="border border-slate-300 p-2">Option</th>
         </tr>
       </thead>
       <tbody>
-        <TeamRouter
+        <TeamRow
           :id="1"
           name="Axmat Kamolov"
           descr="lorem ipsul dolor set ..."
           :imgUrl="teamImg"
-          phone="+998995456312"
-          email="jamol@gmail.com"
+          job="Senior Dev"
           lang="uz"
         />
       </tbody>

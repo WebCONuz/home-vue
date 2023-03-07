@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/*------------------------------------------------*/
+/*------------------ Main Styles -----------------*/
+/*------------------------------------------------*/
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 }
-
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -29,4 +31,82 @@ button.bg-color:hover {
   background: #fff !important;
   color: #58259e;
   outline: 1px solid #58259e;
+}
+
+/*------------------------------------------------*/
+/*------------------ Slide Styles ----------------*/
+/*------------------------------------------------*/
+.owl-stage-outer {
+  padding: 1rem 0;
+}
+/* Slider buttons */
+.owl-nav button {
+  position: absolute;
+  background-color: transparent !important;
+  width: 50px;
+  height: 20px;
+  transition: 0.2s;
+  display: block;
+  bottom: -11%;
+}
+.owl-nav button span {
+  display: none;
+}
+.owl-nav button.owl-prev {
+  right: 35%;
+  background-image: url("../assets/icons/right_arrow.png") !important;
+  background-size: 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.owl-nav button.owl-next {
+  left: 35%;
+  background-image: url("../assets/icons/left_arrow.png") !important;
+  background-size: 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Slider dot navs */
+.owl-dots {
+  margin-top: 1rem;
+  text-align: center;
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.owl-dots .owl-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: #57259e85 !important;
+  opacity: 0.5;
+}
+.owl-dots .owl-dot.active {
+  background-color: #58259e !important;
+  opacity: 1;
+}
+
+/* Slider Responsive */
+@media screen and (max-width: 1024px) {
+  .owl-nav button.owl-next {
+    left: 30%;
+  }
+  .owl-nav button.owl-prev {
+    right: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .owl-dots {
+    bottom: -5%;
+  }
+  .owl-nav button.owl-next {
+    display: none;
+  }
+  .owl-nav button.owl-prev {
+    display: none;
+  }
 }

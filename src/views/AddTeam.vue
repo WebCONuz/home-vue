@@ -45,24 +45,14 @@
             name="teamImg"
           />
         </label>
-        <label for="phone" class="block w-full mb-4">
-          <p class="text-gray-600 mb-1">Phone number:</p>
+        <label for="job" class="block w-full mb-4">
+          <p class="text-gray-600 mb-1">Member job:</p>
           <input
-            id="phone"
+            id="job"
             type="text"
             class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
-            placeholder="Phone number"
-            name="phone"
-          />
-        </label>
-        <label for="email" class="block w-full mb-4">
-          <p class="text-gray-600 mb-1">Email address:</p>
-          <input
-            id="email"
-            type="text"
-            class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
-            placeholder="Email"
-            name="email"
+            placeholder="Job"
+            name="job"
           />
         </label>
         <label for="lang" class="block w-full">

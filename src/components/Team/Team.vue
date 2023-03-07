@@ -1,13 +1,32 @@
 <script setup>
-import { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { onMounted } from "vue";
 import teamImg from "@/assets/images/man.png";
+import TeamCard from "@/ui/TeamCard/TeamCard.vue";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+function teamSlide() {
+  const owl2 = $(".team__slider");
+  owl2.owlCarousel({
+    loop: true,
+    nav: true,
+    dots: true,
+    margin: 40,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      640: {
+        items: 2,
+      },
+      1024: {
+        items: 3,
+      },
+    },
+  });
+}
 
-const modules = [Pagination, Navigation];
+onMounted(() => {
+  teamSlide();
+});
 </script>
 
 <template>
@@ -18,114 +37,38 @@ const modules = [Pagination, Navigation];
       >
         Bizning Jamoa
       </h2>
-      <swiper
-        :modules="modules"
-        :slides-per-view="3"
-        :space-between="30"
-        navigation
-        :pagination="{ clickable: true }"
-      >
-        <swiper-slide>
-          <div class="team__slider--item flex flex-col items-center">
-            <img
-              :src="teamImg"
-              alt="card-img"
-              class="mb-[-80px] relative z-10"
-              style="width: 60%"
-            />
-            <div
-              class="card-body bg-color py-4 px-5 flex flex-col justify-end h-[230px] rounded-3xl"
-            >
-              <h3 class="mb-2 text-lg text-white text-center uppercase">
-                Husanboy Mansurov
-              </h3>
-              <p
-                class="text-white text-center text-base h-[4.69rem] overflow-hidden"
-              >
-                Product manager<br />
-                <span class="text-[#ffffffc2]"
-                  >20+ yillik tajribaga ega fullstack dasturchi.</span
-                >
-              </p>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="team__slider--item flex flex-col items-center">
-            <img
-              :src="teamImg"
-              alt="card-img"
-              class="mb-[-80px] relative z-10"
-              style="width: 60%"
-            />
-            <div
-              class="card-body bg-color py-4 px-5 flex flex-col justify-end h-[230px] rounded-3xl"
-            >
-              <h3 class="mb-2 text-lg text-white text-center uppercase">
-                Husanboy Mansurov
-              </h3>
-              <p
-                class="text-white text-center text-base h-[4.69rem] overflow-hidden"
-              >
-                Product manager<br />
-                <span class="text-[#ffffffc2]"
-                  >20+ yillik tajribaga ega fullstack dasturchi.</span
-                >
-              </p>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="team__slider--item flex flex-col items-center">
-            <img
-              :src="teamImg"
-              alt="card-img"
-              class="mb-[-80px] relative z-10"
-              style="width: 60%"
-            />
-            <div
-              class="card-body bg-color py-4 px-5 flex flex-col justify-end h-[230px] rounded-3xl"
-            >
-              <h3 class="mb-2 text-lg text-white text-center uppercase">
-                Husanboy Mansurov
-              </h3>
-              <p
-                class="text-white text-center text-base h-[4.69rem] overflow-hidden"
-              >
-                Product manager<br />
-                <span class="text-[#ffffffc2]"
-                  >20+ yillik tajribaga ega fullstack dasturchi.</span
-                >
-              </p>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="team__slider--item flex flex-col items-center">
-            <img
-              :src="teamImg"
-              alt="card-img"
-              class="mb-[-80px] relative z-10"
-              style="width: 60%"
-            />
-            <div
-              class="card-body bg-color py-4 px-5 flex flex-col justify-end h-[230px] rounded-3xl"
-            >
-              <h3 class="mb-2 text-lg text-white text-center uppercase">
-                Husanboy Mansurov
-              </h3>
-              <p
-                class="text-white text-center text-base h-[4.69rem] overflow-hidden"
-              >
-                Product manager<br />
-                <span class="text-[#ffffffc2]"
-                  >20+ yillik tajribaga ega fullstack dasturchi.</span
-                >
-              </p>
-            </div>
-          </div>
-        </swiper-slide>
-      </swiper>
+      <div class="team__slider owl-carousel">
+        <TeamCard
+          :teamImg="teamImg"
+          name="Axror Jumayev"
+          job="Team Lead"
+          text="20+ yillik tajribaga ega fullstack dasturchi."
+        />
+        <TeamCard
+          :teamImg="teamImg"
+          name="Axror Jumayev"
+          job="Team Lead"
+          text="20+ yillik tajribaga ega fullstack dasturchi."
+        />
+        <TeamCard
+          :teamImg="teamImg"
+          name="Axror Jumayev"
+          job="Team Lead"
+          text="20+ yillik tajribaga ega fullstack dasturchi."
+        />
+        <TeamCard
+          :teamImg="teamImg"
+          name="Axror Jumayev"
+          job="Team Lead"
+          text="20+ yillik tajribaga ega fullstack dasturchi."
+        />
+        <TeamCard
+          :teamImg="teamImg"
+          name="Axror Jumayev"
+          job="Team Lead"
+          text="20+ yillik tajribaga ega fullstack dasturchi."
+        />
+      </div>
     </div>
   </section>
 </template>
