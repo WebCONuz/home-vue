@@ -1,7 +1,16 @@
 <script setup>
-import teamImg from "@/assets/images/man.png";
+import { onMounted } from "vue";
+import { useStore } from "vuex";
+
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import TeamRow from "@/ui/TeamRow/TeamRow.vue";
+
+const { state } = useStore();
+const store = useStore();
+
+onMounted(() => {
+  store.dispatch("fetchTeam");
+});
 </script>
 
 <template>
@@ -25,12 +34,13 @@ import TeamRow from "@/ui/TeamRow/TeamRow.vue";
       </thead>
       <tbody>
         <TeamRow
-          :id="1"
-          name="Axmat Kamolov"
-          descr="lorem ipsul dolor set ..."
-          :imgUrl="teamImg"
-          job="Senior Dev"
-          lang="uz"
+          v-for="(item, index) in state.getTeam.team"
+          :id="index + 1"
+          :name="item.full_name"
+          :descr="item.description"
+          :imgUrl="'http://localhost:5000/' + item.avatar_img"
+          :job="item.job"
+          :lang="item.lang"
         />
       </tbody>
     </table>

@@ -1,14 +1,14 @@
 import axios from "@/service/axios";
 
-const getServices = {
+const getWorks = {
   state: {
-    services: [],
+    works: [],
     isLoading: true,
     errorMessage: "",
   },
   mutations: {
-    GET_SERVICES(state, data) {
-      state.services = data;
+    GET_WORKS(state, data) {
+      state.works = data;
     },
     GET_LOADING(state, status) {
       state.isLoading = status;
@@ -18,10 +18,10 @@ const getServices = {
     },
   },
   actions: {
-    async fetchServices({ commit, state }) {
+    async fetchWorks({ commit }) {
       try {
-        const services = await axios.get("/services");
-        commit("GET_SERVICES", services.data.data);
+        const works = await axios.get("/works");
+        commit("GET_WORKS", works.data.data);
         commit("GET_LOADING", false);
       } catch (err) {
         commit("GET_ERRORMESSAGE", err);
@@ -30,4 +30,4 @@ const getServices = {
   },
 };
 
-export default getServices;
+export default getWorks;

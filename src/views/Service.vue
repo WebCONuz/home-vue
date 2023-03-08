@@ -1,8 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { useStore } from "vuex";
 
-import serviceImg from "../assets/images/service/crm.png";
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import ServiceRow from "../ui/ServiceRow/ServiceRow.vue";
 

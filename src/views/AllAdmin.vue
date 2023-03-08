@@ -1,6 +1,16 @@
 <script setup>
+import { onMounted } from "vue";
+import { useStore } from "vuex";
+
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 import AdminRow from "@/ui/AdminRow/AdminRow.vue";
+
+const { state } = useStore();
+const store = useStore();
+
+onMounted(() => {
+  store.dispatch("fetchAdmins");
+});
 </script>
 
 <template>
@@ -18,10 +28,11 @@ import AdminRow from "@/ui/AdminRow/AdminRow.vue";
       </thead>
       <tbody>
         <AdminRow
-          :id="1"
-          name="Axmat axadov"
-          email="axadov@gmail.com"
-          :isCreator="true"
+          v-for="(item, index) in state.getAdmin.admins"
+          :id="index + 1"
+          :name="item.full_name"
+          :email="item.email"
+          :isCreator="item.is_creator"
         />
       </tbody>
     </table>

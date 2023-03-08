@@ -64,8 +64,8 @@ onMounted(() => {
               @click="showLang"
               class="lang-element lang-area flex items-center"
             >
-              <span class="lang-element text-xl mr-2" lang-data="en">Uzb</span>
-              <img :src="uzb" alt="lang-flag" class="lang-element w-6" />
+              <span class="lang-element text-xl mr-2" lang-data="en">Lang</span>
+              <!-- <img :src="uzb" alt="lang-flag" class="lang-element w-6" /> -->
             </div>
             <ul
               v-if="isOpenLang"
@@ -158,6 +158,13 @@ onMounted(() => {
                   href="/#contact"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
                   >Contact</a
+                >
+              </li>
+              <li>
+                <router-link
+                  to="/login"
+                  class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
+                  >Login</router-link
                 >
               </li>
             </ul>

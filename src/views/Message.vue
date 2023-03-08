@@ -1,11 +1,21 @@
 <script setup>
+import { onMounted } from "vue";
+import { useStore } from "vuex";
+
 import MessageRow from "@/ui/MessageRow/MessageRow.vue";
+
+const { state } = useStore();
+const store = useStore();
+
+onMounted(() => {
+  store.dispatch("fetchMessages");
+});
 </script>
 
 <template>
   <div class="px-4">
     <h2
-      class="pt-8 pb-6 text-3xl font-bold text-center text-violet-600 capitelize"
+      class="pt-6 pb-8 text-2xl font-bold text-center text-violet-600 capitelize"
     >
       Messages
     </h2>
@@ -22,11 +32,12 @@ import MessageRow from "@/ui/MessageRow/MessageRow.vue";
       </thead>
       <tbody>
         <MessageRow
-          :id="1"
-          name="Kamol Latipov"
-          email="kamol@gmail.com"
-          phone="+998995463641"
-          message="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+          v-for="(item, index) in state.getMessages.messages"
+          :id="index + 1"
+          :name="item.full_name"
+          :email="item.email"
+          :phone="item.phone"
+          :message="item.user_msg"
         />
       </tbody>
     </table>

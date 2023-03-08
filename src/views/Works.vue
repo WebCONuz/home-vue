@@ -1,8 +1,16 @@
 <script setup>
+import { onMounted } from "vue";
+import { useStore } from "vuex";
+
 import WorksRow from "../ui/WorksRow/WorksRow.vue";
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
-import pcWork from "@/assets/images/portfolio/pc_work1.jpg";
-import mobileWork from "../assets/images/portfolio/mobile_work1.jpg";
+
+const { state } = useStore();
+const store = useStore();
+
+onMounted(() => {
+  store.dispatch("fetchWorks");
+});
 </script>
 
 <template>
@@ -26,12 +34,13 @@ import mobileWork from "../assets/images/portfolio/mobile_work1.jpg";
       </thead>
       <tbody>
         <WorksRow
-          :id="1"
-          title="Online Ta'lim tizimi web ilovasi."
-          link="http://localhost:5500"
-          :pcImg="pcWork"
-          :mobileImg="mobileWork"
-          lang="uz"
+          v-for="(item, index) in state.getWorks.works"
+          :id="index + 1"
+          :title="item.title"
+          :link="item.work_link"
+          :pcImg="'http://localhost:5000/' + item.pc_img_url"
+          :mobileImg="'http://localhost:5000/' + item.phone_img_url"
+          :lang="item.lang"
         />
       </tbody>
     </table>
