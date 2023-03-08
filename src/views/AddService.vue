@@ -1,4 +1,37 @@
-<script setup></script>
+<script setup>
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+const state = useStore().state;
+
+const title = ref("");
+const description = ref("");
+const serviceImg = ref(null);
+const lang = ref("");
+
+const uploadFile = (event) => {
+  serviceImg.value = event.target.files[0];
+};
+
+function addService(e) {
+  e.preventDefault();
+  if (
+    title.value.length === 0 ||
+    description.value.length === 0 ||
+    !serviceImg.value ||
+    lang.value.length === 0
+  ) {
+    console.log("Formalar to'ldirilmagan");
+  } else {
+    let formData = new FormData();
+    formData.append("title", title.value);
+    formData.append("description", description.value);
+    formData.append("serviceImg", serviceImg.value);
+    formData.append("lang", lang.value);
+    store.dispatch("ADD_SERVICE", formData);
+  }
+}
+</script>
 
 <template>
   <div class="container min-h-screen flex flex-col items-center justify-center">
@@ -13,11 +46,16 @@
         All Services
       </router-link>
     </div>
-    <form action="" class="block sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[55%]">
+    <form
+      action=""
+      class="block sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[55%]"
+      @submit="addService"
+    >
       <div class="w-full p-4 bg-gray-200 rounded-lg">
         <label for="title" class="block w-full mb-4">
           <p class="text-gray-600 mb-1">Service title:</p>
           <input
+            v-model="title"
             id="title"
             type="text"
             class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
@@ -28,6 +66,7 @@
         <label for="description" class="block w-full mb-4">
           <p class="text-gray-600 mb-1">Service description:</p>
           <input
+            v-model="description"
             id="description"
             type="text"
             class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
@@ -38,6 +77,7 @@
         <label for="serviceImg" class="block w-full mb-4">
           <p class="text-gray-600 mb-1">Service image:</p>
           <input
+            @change="uploadFile"
             id="serviceImg"
             type="file"
             class="w-full block bg-white border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
@@ -49,6 +89,7 @@
           <p class="text-gray-600 mb-1">Service language:</p>
         </label>
         <select
+          v-model="lang"
           name="lang"
           id="lang"
           class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none mb-4 text-[#333333d8] focus:ring-4 focus:ring-violet-400"

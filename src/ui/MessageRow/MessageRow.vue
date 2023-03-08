@@ -10,16 +10,18 @@ const props = defineProps({
 
 <template>
   <tr>
-    <td class="border border-slate-300 p-2">{{ props.id }}</td>
-    <td class="border border-slate-300 p-2">{{ props.name }}</td>
-    <td class="border border-slate-300 p-2">{{ props.email }}</td>
-    <td class="border border-slate-300 p-2">{{ props.phone }}</td>
-    <td class="border border-slate-300 p-2">{{ props.message }}</td>
-    <td class="border border-slate-300 p-2 text-center">
+    <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.id }}</td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.name }}</td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.email }}</td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.phone }}</td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">
+      {{ props.message }}
+    </td>
+    <td class="border border-slate-300 px-2 py-1 text-center">
       <button
-        class="border border-red-500 text-red-500 py-1 px-2 text-sm rounded-md duration-200 hover:bg-red-500 hover:text-white"
+        class="border border-red-500 text-red-500 px-2 rounded-md duration-200 hover:bg-red-500 hover:text-white"
       >
-        <i class="bx bx-trash text-xl"></i>
+        <i class="bx bx-trash text-lg"></i>
       </button>
     </td>
   </tr>

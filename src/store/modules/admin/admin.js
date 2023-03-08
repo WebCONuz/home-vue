@@ -21,7 +21,6 @@ const getAdmin = {
     async fetchAdmins({ commit }) {
       try {
         const admins = await axios.get("/admin");
-        console.log(admins.data.data);
         commit("GET_ADMINS", admins.data.data);
         commit("GET_LOADING", false);
       } catch (err) {
