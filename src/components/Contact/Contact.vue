@@ -1,4 +1,44 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { useStore } from "vuex";
+import { toast } from "vue3-toastify";
+
+const store = useStore();
+
+const full_name = ref("");
+const email = ref("");
+const phone = ref("");
+const user_msg = ref("");
+
+function addMessage(e) {
+  e.preventDefault();
+  const params = {
+    full_name: full_name.value,
+    email: email.value,
+    phone: phone.value,
+    user_msg: user_msg.value,
+  };
+  if (
+    params.full_name.length === 0 ||
+    params.email.length === 0 ||
+    params.phone.length === 0 ||
+    params.user_msg.length === 0
+  ) {
+    toast.warning("Formalar to'liq to'ldirilmagan");
+  } else {
+    store
+      .dispatch("ADD_MESSAGE", params)
+      .then((response) => {
+        if (response.status === 201) {
+          toast.success("Xabaringiz yuborildi.");
+        } else {
+          toast.error(response.response.data.message);
+        }
+      })
+      .catch((err) => console.log(err));
+  }
+}
+</script>
 
 <template>
   <section id="contact" class="contact pt-8 pb-12 lg:py-16">
@@ -10,29 +50,33 @@
       </h2>
       <div class="flex flex-col md:flex-row gap-8">
         <div class="w-full md:w-1/2 p-3 md:p-5 bg-white rounded-lg shadow-lg">
-          <form action="#">
+          <form @submit="addMessage">
             <h3 class="text-xl md:text-2xl font-semibold text-[#00282F] mb-4">
               Xabar yuborish
             </h3>
             <input
+              v-model="full_name"
               type="text"
               id="fullname"
               class="w-full mb-3 md:mb-4 py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
               placeholder="Ism-sharif"
             />
             <input
+              v-model="email"
               type="email"
               id="email"
               class="w-full mb-3 md:mb-4 py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
               placeholder="Email"
             />
             <input
+              v-model="phone"
               type="text"
               id="phone"
               class="w-full mb-3 md:mb-4 py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
               placeholder="Telefon raqam"
             />
             <textarea
+              v-model="user_msg"
               class="w-full resize-none mb-3 md:mb-4 h-[120px] md:h-[80px] py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
               placeholder="Xabarnoma"
             ></textarea>

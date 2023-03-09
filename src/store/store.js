@@ -9,6 +9,7 @@ import getWorks from "./modules/works/getWorks";
 import postWork from "./modules/works/postWork";
 
 import getMessages from "./modules/message/message";
+import postMessage from "./modules/message/postMessage";
 
 import getAdmin from "./modules/admin/getAdmin";
 import postAdmin from "./modules/admin/postAdmin";
@@ -26,6 +27,7 @@ const store = createStore({
     postWork,
 
     getMessages,
+    postMessage,
 
     getAdmin,
     postAdmin,

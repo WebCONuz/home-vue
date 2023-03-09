@@ -20,7 +20,12 @@ const getMessages = {
   actions: {
     async fetchMessages({ commit }) {
       try {
-        const messages = await axios.get("/message");
+        const token = window.localStorage.getItem("token");
+        const messages = await axios.get("/message", {
+          headers: {
+            Authorization: `Barear ${token}`,
+          },
+        });
         commit("GET_MESSAGES", messages.data.data);
         commit("GET_LOADING", false);
       } catch (err) {
