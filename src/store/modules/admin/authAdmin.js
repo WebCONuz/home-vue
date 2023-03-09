@@ -27,10 +27,12 @@ const authAdmin = {
         commit("SET_AUTH", true);
         commit("SET_TOKEN", response.data.token);
         commit("SET_MESSAGE", "Hammasi yaxshi");
+        return response;
       } catch (err) {
         commit("SET_MESSAGE", err.response.data.message);
         commit("SET_TOKEN", "");
         commit("SET_AUTH", false);
+        return err;
       }
     },
   },

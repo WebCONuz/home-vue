@@ -1,5 +1,11 @@
 <script setup>
 import logoImg from "@/assets/images/homedev.png";
+import { toast } from "vue3-toastify";
+
+function logout() {
+  window.localStorage.clear();
+  toast.warning("Logout qilindi");
+}
 </script>
 
 <template>
@@ -48,6 +54,7 @@ import logoImg from "@/assets/images/homedev.png";
       </router-link>
     </div>
     <router-link
+      @click="logout"
       to="/login"
       class="px-4 py-2 bg-gray-300 rounded-[25px] hover:bg-gray-700 block hover:text-white duration-200 mt-auto text-center"
     >

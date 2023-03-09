@@ -1,10 +1,12 @@
 <script setup>
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { toast } from "vue3-toastify";
 import Footer from "@/components/Footer/Footer.vue";
 
 const store = useStore();
-const state = useStore().state;
+const router = useRouter();
 
 const email = ref("");
 const password = ref("");
@@ -16,9 +18,16 @@ function useAuth(e) {
     password: password.value,
   };
   if (params.email.length === 0 || params.password.length === 0) {
-    console.log("Formalar to'ldirilmagan");
+    toast.warning("Formalar to'liq to'ldirilmagan");
   } else {
-    store.dispatch("LOGIN_ADMIN", params);
+    store.dispatch("LOGIN_ADMIN", params).then((response) => {
+      if (response.status === 201) {
+        toast.success("Login successfully");
+        router.push({ path: "/admin/service" });
+      } else {
+        toast.error(response.response.data.message);
+      }
+    });
   }
 }
 </script>
@@ -31,9 +40,6 @@ function useAuth(e) {
       <h1 class="text-center mb-3 text-3xl font-semibold text-violet-700">
         Enter Adminstration
       </h1>
-      <p class="text-center text-red-600 mb-4">
-        {{ state.authAdmin.authMessage }}
-      </p>
       <form
         @submit="useAuth"
         class="block sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[55%] 2xl:w-[40%]"
