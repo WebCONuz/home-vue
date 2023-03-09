@@ -1,15 +1,15 @@
 import axios from "@/service/axios";
 
-const postService = {
+const postTeam = {
   state: () => ({
-    newService: null,
+    newTeam: null,
     isLoading: true,
     errorMessage: null,
   }),
 
   mutations: {
-    POST_SERVICE(state, data) {
-      state.newService = data;
+    POST_TEAM(state, data) {
+      state.newTeam = data;
     },
     SET_LOADING(state, status) {
       state.isLoading = status;
@@ -19,19 +19,19 @@ const postService = {
     },
   },
   actions: {
-    async ADD_SERVICE({ commit }, payload) {
+    async ADD_TEAM({ commit }, payload) {
       try {
         const token = window.localStorage.getItem("token");
-        const newService = await axios.post(`/services`, payload, {
+        const newTeam = await axios.post(`/team`, payload, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Barear ${token}`,
           },
         });
 
-        commit("POST_SERVICE", newService.data.data);
+        commit("POST_TEAM", newTeam.data.data);
         commit("SET_LOADING", false);
-        return newService;
+        return newTeam;
       } catch (err) {
         commit("SET_ERRORMESSAGE", err);
         return err;
@@ -40,4 +40,4 @@ const postService = {
   },
 };
 
-export default postService;
+export default postTeam;

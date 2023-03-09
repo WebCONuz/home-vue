@@ -1,15 +1,15 @@
 import axios from "@/service/axios";
 
-const postService = {
+const postAdmin = {
   state: () => ({
-    newService: null,
+    newAdmin: null,
     isLoading: true,
     errorMessage: null,
   }),
 
   mutations: {
-    POST_SERVICE(state, data) {
-      state.newService = data;
+    POST_ADMIN(state, data) {
+      state.newAdmin = data;
     },
     SET_LOADING(state, status) {
       state.isLoading = status;
@@ -19,19 +19,19 @@ const postService = {
     },
   },
   actions: {
-    async ADD_SERVICE({ commit }, payload) {
+    async ADD_ADMIN({ commit }, payload) {
       try {
         const token = window.localStorage.getItem("token");
-        const newService = await axios.post(`/services`, payload, {
+        const newAdmin = await axios.post(`/admin`, payload, {
           headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
             Authorization: `Barear ${token}`,
           },
         });
 
-        commit("POST_SERVICE", newService.data.data);
+        commit("POST_ADMIN", newAdmin.data.data);
         commit("SET_LOADING", false);
-        return newService;
+        return newAdmin;
       } catch (err) {
         commit("SET_ERRORMESSAGE", err);
         return err;
@@ -40,4 +40,4 @@ const postService = {
   },
 };
 
-export default postService;
+export default postAdmin;

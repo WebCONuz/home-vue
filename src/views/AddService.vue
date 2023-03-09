@@ -1,8 +1,11 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { toast } from "vue3-toastify";
+
 const store = useStore();
-const state = useStore().state;
+const router = useRouter();
 
 const title = ref("");
 const description = ref("");
@@ -21,14 +24,26 @@ function addService(e) {
     !serviceImg.value ||
     lang.value.length === 0
   ) {
-    console.log("Formalar to'ldirilmagan");
+    toast.warning("Formalar to'liq to'ldirilmagan");
   } else {
     let formData = new FormData();
     formData.append("title", title.value);
     formData.append("description", description.value);
     formData.append("serviceImg", serviceImg.value);
     formData.append("lang", lang.value);
-    store.dispatch("ADD_SERVICE", formData);
+    store
+      .dispatch("ADD_SERVICE", formData)
+      .then((response) => {
+        if (response.status === 201) {
+          toast.success("Create new service");
+          router.push({ path: "/admin/service" });
+        } else if (response.response.status === 403) {
+          toast.error("Token expired");
+          window.localStorage.clear();
+          router.push({ path: "/login" });
+        }
+      })
+      .catch((err) => console.log(err));
   }
 }
 </script>
