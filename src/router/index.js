@@ -16,6 +16,8 @@ import EditTeam from "@/views/Team/EditTeam.vue";
 
 import Works from "@/views/Works/Works.vue";
 import AddWorks from "@/views/Works/AddWorks.vue";
+import EditWorks from "@/views/Works/EditWorks.vue";
+
 import Message from "@/views/Message/Message.vue";
 import NotFound from "@/layouts/NotFound.vue";
 
@@ -71,6 +73,10 @@ const router = createRouter({
         {
           path: "works",
           component: Works,
+        },
+        {
+          path: "works/:id/edit",
+          component: EditWorks,
         },
         {
           path: "works/add",

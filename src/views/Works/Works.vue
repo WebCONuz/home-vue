@@ -35,7 +35,8 @@ onMounted(() => {
       <tbody>
         <WorksRow
           v-for="(item, index) in state.getWorks.works"
-          :id="index + 1"
+          :num="index + 1"
+          :id="item.id"
           :title="item.title"
           :link="item.work_link"
           :pcImg="'http://localhost:5000/' + item.pc_img_url"
