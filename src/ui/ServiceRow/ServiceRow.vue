@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps({
+  num: Number,
   id: Number,
   title: String,
   text: String,
@@ -11,7 +12,7 @@ const props = defineProps({
 
 <template>
   <tr>
-    <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.id }}</td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.num }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.title }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.text }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm text-center">
@@ -33,11 +34,12 @@ const props = defineProps({
     </td>
     <td class="border border-slate-300 px-2 py-1 text-center">
       <div class="flex">
-        <button
+        <router-link
+          :to="`/admin/service/${props.id}/edit`"
           class="border border-blue-500 text-blue-500 px-2 mx-2 rounded-md duration-200 hover:bg-blue-500 hover:text-white"
         >
           <i class="bx bx-edit text-lg"></i>
-        </button>
+        </router-link>
         <button
           class="border border-red-500 text-red-500 px-2 rounded-md duration-200 hover:bg-red-500 hover:text-white"
         >

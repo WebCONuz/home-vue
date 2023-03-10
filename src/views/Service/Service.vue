@@ -3,7 +3,7 @@ import { onMounted } from "vue";
 import { useStore } from "vuex";
 
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
-import ServiceRow from "../ui/ServiceRow/ServiceRow.vue";
+import ServiceRow from "../../ui/ServiceRow/ServiceRow.vue";
 
 const { state } = useStore();
 const store = useStore();
@@ -35,7 +35,8 @@ onMounted(() => {
       <tbody>
         <ServiceRow
           v-for="(item, index) in state.getServices.services"
-          :id="index + 1"
+          :num="index + 1"
+          :id="item.id"
           :title="item.title"
           :text="item.description"
           :imgUrl="'http://localhost:5000/' + item.img_url"

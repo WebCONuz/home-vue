@@ -2,15 +2,19 @@ import { createRouter, createWebHistory } from "vue-router";
 import UserLayout from "@/layouts/UserLayout.vue";
 import Login from "@/layouts/Login.vue";
 import AdminLayout from "@/layouts/AdminLayout.vue";
-import AllAdmin from "@/views/AllAdmin.vue";
-import AddAdmin from "@/views/AddAdmin.vue";
-import Service from "@/views/Service.vue";
-import AddService from "@/views/AddService.vue";
-import Team from "@/views/Team.vue";
-import AddTeam from "@/views/AddTeam.vue";
-import Works from "@/views/Works.vue";
-import AddWorks from "@/views/AddWorks.vue";
-import Message from "@/views/Message.vue";
+
+import AllAdmin from "@/views/Admin/AllAdmin.vue";
+import AddAdmin from "@/views/Admin/AddAdmin.vue";
+
+import Service from "@/views/Service/Service.vue";
+import AddService from "@/views/Service/AddService.vue";
+import EditService from "@/views/Service/PutService.vue";
+
+import Team from "@/views/Team/Team.vue";
+import AddTeam from "@/views/Team/AddTeam.vue";
+import Works from "@/views/Works/Works.vue";
+import AddWorks from "@/views/Works/AddWorks.vue";
+import Message from "@/views/Message/Message.vue";
 import NotFound from "@/layouts/NotFound.vue";
 
 const router = createRouter({
@@ -41,6 +45,10 @@ const router = createRouter({
         {
           path: "service",
           component: Service,
+        },
+        {
+          path: "service/:id/edit",
+          component: EditService,
         },
         {
           path: "service/add",

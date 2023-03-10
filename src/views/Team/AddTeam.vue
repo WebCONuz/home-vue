@@ -7,36 +7,39 @@ import { toast } from "vue3-toastify";
 const store = useStore();
 const router = useRouter();
 
-const title = ref("");
+const full_name = ref("");
+const job = ref("");
 const description = ref("");
-const serviceImg = ref(null);
+const teamImg = ref(null);
 const lang = ref("");
 
 const uploadFile = (event) => {
-  serviceImg.value = event.target.files[0];
+  teamImg.value = event.target.files[0];
 };
 
-function addService(e) {
+function addTeam(e) {
   e.preventDefault();
   if (
-    title.value.length === 0 ||
+    full_name.value.length === 0 ||
+    job.value.length === 0 ||
     description.value.length === 0 ||
-    !serviceImg.value ||
+    !teamImg.value ||
     lang.value.length === 0
   ) {
     toast.warning("Formalar to'liq to'ldirilmagan");
   } else {
     let formData = new FormData();
-    formData.append("title", title.value);
+    formData.append("full_name", full_name.value);
+    formData.append("job", job.value);
     formData.append("description", description.value);
-    formData.append("serviceImg", serviceImg.value);
+    formData.append("teamImg", teamImg.value);
     formData.append("lang", lang.value);
     store
-      .dispatch("ADD_SERVICE", formData)
+      .dispatch("ADD_TEAM", formData)
       .then((response) => {
         if (response.status === 201) {
-          toast.success("Create new service");
-          router.push({ path: "/admin/service" });
+          toast.success("Create new team member");
+          router.push({ path: "/admin/team" });
         } else if (response.response.status === 403) {
           toast.error("Token expired");
           window.localStorage.clear();
@@ -52,34 +55,30 @@ function addService(e) {
   <div class="container min-h-screen flex flex-col items-center justify-center">
     <div class="flex justify-between items-center w-[55%] mb-6">
       <h1 class="text-center text-2xl font-semibold text-violet-700">
-        Add new Service
+        Add new Team member
       </h1>
       <router-link
-        to="/admin/service"
+        to="/admin/team"
         class="block hover:bg-gray-600 py-2 px-5 rounded-[25px] duration-200 bg-gray-400 text-white"
       >
-        All Services
+        All Team Members
       </router-link>
     </div>
-    <form
-      action=""
-      class="block sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[55%]"
-      @submit="addService"
-    >
+    <form action="" class="block w-[55%]" @submit="addTeam">
       <div class="w-full p-4 bg-gray-200 rounded-lg">
-        <label for="title" class="block w-full mb-4">
-          <p class="text-gray-600 mb-1">Service title:</p>
+        <label for="full_name" class="block w-full mb-4">
+          <p class="text-gray-600 mb-1">Full name:</p>
           <input
-            v-model="title"
-            id="title"
+            v-model="full_name"
+            id="full_name"
             type="text"
             class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
-            placeholder="Service name"
-            name="title"
+            placeholder="Member fullname"
+            name="full_name"
           />
         </label>
         <label for="description" class="block w-full mb-4">
-          <p class="text-gray-600 mb-1">Service description:</p>
+          <p class="text-gray-600 mb-1">Description about new member:</p>
           <input
             v-model="description"
             id="description"
@@ -89,19 +88,30 @@ function addService(e) {
             name="description"
           />
         </label>
-        <label for="serviceImg" class="block w-full mb-4">
-          <p class="text-gray-600 mb-1">Service image:</p>
+        <label for="teamImg" class="block w-full mb-4">
+          <p class="text-gray-600 mb-1">New member avatar:</p>
           <input
             @change="uploadFile"
-            id="serviceImg"
+            id="teamImg"
             type="file"
             class="w-full block bg-white border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
             placeholder="Select file"
-            name="serviceImg"
+            name="teamImg"
+          />
+        </label>
+        <label for="job" class="block w-full mb-4">
+          <p class="text-gray-600 mb-1">Member job:</p>
+          <input
+            v-model="job"
+            id="job"
+            type="text"
+            class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
+            placeholder="Job"
+            name="job"
           />
         </label>
         <label for="lang" class="block w-full">
-          <p class="text-gray-600 mb-1">Service language:</p>
+          <p class="text-gray-600 mb-1">Language:</p>
         </label>
         <select
           v-model="lang"

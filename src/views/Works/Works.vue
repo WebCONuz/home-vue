@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 import { useStore } from "vuex";
 
-import WorksRow from "../ui/WorksRow/WorksRow.vue";
+import WorksRow from "../../ui/WorksRow/WorksRow.vue";
 import AdminTitle from "@/ui/AdminTitle/AdminTitle.vue";
 
 const { state } = useStore();
