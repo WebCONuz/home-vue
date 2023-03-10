@@ -8,10 +8,12 @@ import AddAdmin from "@/views/Admin/AddAdmin.vue";
 
 import Service from "@/views/Service/Service.vue";
 import AddService from "@/views/Service/AddService.vue";
-import EditService from "@/views/Service/PutService.vue";
+import EditService from "@/views/Service/EditService.vue";
 
 import Team from "@/views/Team/Team.vue";
 import AddTeam from "@/views/Team/AddTeam.vue";
+import EditTeam from "@/views/Team/EditTeam.vue";
+
 import Works from "@/views/Works/Works.vue";
 import AddWorks from "@/views/Works/AddWorks.vue";
 import Message from "@/views/Message/Message.vue";
@@ -57,6 +59,10 @@ const router = createRouter({
         {
           path: "team",
           component: Team,
+        },
+        {
+          path: "team/:id/edit",
+          component: EditTeam,
         },
         {
           path: "team/add",

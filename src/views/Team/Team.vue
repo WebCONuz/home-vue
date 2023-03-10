@@ -23,6 +23,7 @@ onMounted(() => {
     <table id="Portfolio" class="table-auto border border-slate-400 w-full">
       <thead>
         <tr>
+          <th class="border border-slate-300 p-2">Num</th>
           <th class="border border-slate-300 p-2">ID</th>
           <th class="border border-slate-300 p-2">Full name</th>
           <th class="border border-slate-300 p-2">description</th>
@@ -35,7 +36,8 @@ onMounted(() => {
       <tbody>
         <TeamRow
           v-for="(item, index) in state.getTeam.team"
-          :id="index + 1"
+          :id="item.id"
+          :num="index + 1"
           :name="item.full_name"
           :descr="item.description"
           :imgUrl="'http://localhost:5000/' + item.avatar_img"

@@ -104,12 +104,6 @@ async function editService(e) {
         }
       }
     }
-
-    // if (response.status === 201) {
-
-    // } else if (response.response.status === 403) {
-    //
-    // }
   }
 }
 </script>
