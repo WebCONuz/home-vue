@@ -1,4 +1,16 @@
 <script setup>
+import { ref } from "vue";
+import { toast } from "vue3-toastify";
+import { useRouter } from "vue-router";
+import axios from "@/service/axios";
+// import Modal from "@/ui/Modal/Modal.vue";
+
+const router = useRouter();
+const showModal = ref(false);
+function showModalFunction() {
+  showModal.value = true;
+}
+
 const props = defineProps({
   num: Number,
   id: Number,
@@ -8,11 +20,40 @@ const props = defineProps({
   lang: String,
   active: Boolean,
 });
+
+async function deleteData() {
+  console.log(props.id);
+  try {
+    const token = window.localStorage.getItem("token");
+    const res = await axios.delete(`/services/${props.id}`, {
+      headers: {
+        Authorization: `Barear ${token}`,
+      },
+    });
+    if (res.status === 200) {
+      toast.success(`Deleted: ${props.id}`);
+      window.location.reload();
+    } else {
+      console.log(res);
+    }
+  } catch (err) {
+    console.log(err);
+    if (err.response && err.response.status === 403) {
+      toast.error("Token expired");
+      window.localStorage.clear();
+      router.push({ path: "/login" });
+    } else {
+      console.log(err);
+    }
+  }
+}
 </script>
 
 <template>
+  <!-- <Modal :active="showModal" /> -->
   <tr>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.num }}</td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.id }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.title }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.text }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm text-center">
@@ -41,6 +82,7 @@ const props = defineProps({
           <i class="bx bx-edit text-lg"></i>
         </router-link>
         <button
+          @click="deleteData"
           class="border border-red-500 text-red-500 px-2 rounded-md duration-200 hover:bg-red-500 hover:text-white"
         >
           <i class="bx bx-trash text-lg"></i>

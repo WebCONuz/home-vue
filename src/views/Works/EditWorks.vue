@@ -58,13 +58,13 @@ async function editWork(e) {
   if (title.length === 0 || work_link.length === 0 || lang.length === 0) {
     toast.warning("Formalar to'liq to'ldirilmagan");
   } else {
-    if (work_phone && work_pc) {
+    if (work_phone || work_pc) {
       try {
         let formData = new FormData();
         formData.append("title", title);
         formData.append("work_link", work_link);
-        formData.append("work_pc", work_pc);
-        formData.append("work_phone", work_phone);
+        if (work_pc) formData.append("work_pc", work_pc);
+        if (work_phone) formData.append("work_phone", work_phone);
         formData.append("lang", lang);
         const response = await axios.put(`/works/${id}`, formData, {
           headers: {

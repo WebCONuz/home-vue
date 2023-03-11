@@ -23,6 +23,7 @@ onMounted(() => {
     <table id="service" class="table-auto border border-slate-400 w-full">
       <thead>
         <tr>
+          <th class="border border-slate-300 p-2">No</th>
           <th class="border border-slate-300 p-2">ID</th>
           <th class="border border-slate-300 p-2">Service name</th>
           <th class="border border-slate-300 p-2">Description</th>
