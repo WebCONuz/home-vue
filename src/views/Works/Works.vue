@@ -23,6 +23,7 @@ onMounted(() => {
     <table id="Portfolio" class="table-auto border border-slate-400 w-full">
       <thead>
         <tr>
+          <th class="border border-slate-300 p-2">Num</th>
           <th class="border border-slate-300 p-2">ID</th>
           <th class="border border-slate-300 p-2">Portfolio name</th>
           <th class="border border-slate-300 p-2">Link</th>

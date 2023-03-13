@@ -127,10 +127,7 @@ async function editWork(e) {
         All Works
       </router-link>
     </div>
-    <form
-      class="block sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[55%]"
-      @submit="editWork"
-    >
+    <form class="block w-[55%]" @submit="editWork">
       <div class="w-full p-4 bg-gray-200 rounded-lg">
         <label for="title" class="block w-full mb-4">
           <p class="text-gray-600 mb-1">Work name:</p>

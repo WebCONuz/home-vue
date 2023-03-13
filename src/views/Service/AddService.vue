@@ -41,6 +41,9 @@ function addService(e) {
           toast.error("Token expired");
           window.localStorage.clear();
           router.push({ path: "/login" });
+        } else {
+          console.log(response);
+          toast.error("Some error! (File size: 5mb)");
         }
       })
       .catch((err) => console.log(err));
