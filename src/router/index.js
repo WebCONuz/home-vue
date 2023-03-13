@@ -5,6 +5,7 @@ import AdminLayout from "@/layouts/AdminLayout.vue";
 
 import AllAdmin from "@/views/Admin/AllAdmin.vue";
 import AddAdmin from "@/views/Admin/AddAdmin.vue";
+import EditAdmin from "@/views/Admin/EditAdmin.vue";
 
 import Service from "@/views/Service/Service.vue";
 import AddService from "@/views/Service/AddService.vue";
@@ -45,6 +46,10 @@ const router = createRouter({
         {
           path: "add",
           component: AddAdmin,
+        },
+        {
+          path: "edit/:id",
+          component: EditAdmin,
         },
         {
           path: "service",
