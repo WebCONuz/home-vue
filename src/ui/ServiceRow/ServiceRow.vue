@@ -33,8 +33,6 @@ async function deleteData() {
     });
     if (res.status === 200) {
       toast.success(`Deleted: ${props.id}`);
-      // window.location.reload();
-      // router.go(router.currentRoute);
       router.go(0);
       modalF(false);
     } else {
