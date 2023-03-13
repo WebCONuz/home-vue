@@ -31,6 +31,10 @@ function addMessage(e) {
       .then((response) => {
         if (response.status === 201) {
           toast.success("Xabaringiz yuborildi.");
+          full_name.value = "";
+          email.value = "";
+          phone.value = "";
+          user_msg.value = "";
         } else {
           toast.error(response.response.data.message);
         }
@@ -73,7 +77,7 @@ function addMessage(e) {
               type="text"
               id="phone"
               class="w-full mb-3 md:mb-4 py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
-              placeholder="Telefon raqam"
+              placeholder="90-123-45-67"
             />
             <textarea
               v-model="user_msg"

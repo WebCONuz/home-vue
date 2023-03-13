@@ -47,7 +47,7 @@ onMounted(() => {
     class="fixed z-30 w-[53px] lg:w-[60px] xl:w-[66px] bg-color text-white h-[80vh] left-0 top-[90px] rounded-r-[40px] py-12 flex-col justify-between items-center hidden md:flex"
   >
     <a
-      href="tel:+998990010201"
+      href="tel:+998333007211"
       class="w-[37px] h-[37px] lg:w-[42px] lg:h-[42px] xl:w-[45px] xl:h-[45px] rounded-xl lg:rounded-2xl bg-white flex justify-center items-center text-[#58259e] shadow-md"
     >
       <i class="bx bxs-phone text-2xl"></i>
@@ -92,31 +92,41 @@ onMounted(() => {
     </div>
     <ul class="social">
       <li
-        class="w-[30px] h-[30px] rounded-full border border-white hover:border-[#086000] flex justify-center items-center duration-200"
+        class="w-[30px] h-[30px] rounded-full flex justify-center items-center duration-200"
       >
         <a
-          href="#"
-          class="bx bxl-facebook text-white hover:text-white duration-200"
+          href="https://t.me/homedev_hr"
+          class="bx bxl-telegram duration-200"
         ></a>
       </li>
       <li
-        class="w-[30px] h-[30px] rounded-full border border-white hover:border-[#086000] flex justify-center items-center duration-200 mt-3"
+        class="w-[30px] h-[30px] rounded-full flex justify-center items-center duration-200 my-3"
       >
         <a
-          href="#"
-          class="bx bxl-instagram text-white hover:text-white duration-200"
+          href="https://www.instagram.com/homedev.uz/"
+          class="bx bxl-instagram duration-200"
         ></a>
       </li>
       <li
-        class="w-[30px] h-[30px] rounded-full border border-white hover:border-[#086000] flex justify-center items-center duration-200 mt-3"
+        class="w-[30px] h-[30px] rounded-full flex justify-center items-center duration-200"
       >
-        <a
-          href="#"
-          class="bx bxl-twitter text-white hover:text-white duration-200"
-        ></a>
+        <a href="#" class="bx bxl-facebook duration-200"></a>
       </li>
     </ul>
   </aside>
 </template>
 
-<style scoped></style>
+<style scoped>
+.social li {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.social li a {
+  color: rgba(255, 255, 255, 0.6);
+}
+.social li:hover {
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+.social li:hover a {
+  color: rgba(255, 255, 255, 1);
+}
+</style>
