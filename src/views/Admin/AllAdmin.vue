@@ -24,6 +24,7 @@ onMounted(() => {
           <th class="border border-slate-300 p-2">Full_name</th>
           <th class="border border-slate-300 p-2">email</th>
           <th class="border border-slate-300 p-2">is_creator</th>
+          <th class="border border-slate-300 p-2">Date</th>
           <th class="border border-slate-300 p-2">Option</th>
         </tr>
       </thead>
@@ -35,6 +36,7 @@ onMounted(() => {
           :name="item.full_name"
           :email="item.email"
           :isCreator="item.is_creator"
+          :updatedAt="item.updatedAt"
         />
       </tbody>
     </table>

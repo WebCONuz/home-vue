@@ -28,6 +28,7 @@ onMounted(() => {
           <th class="border border-slate-300 p-2">Email</th>
           <th class="border border-slate-300 p-2">Phone</th>
           <th class="border border-slate-300 p-2">Message</th>
+          <th class="border border-slate-300 p-2">Date</th>
           <th class="border border-slate-300 p-2">Option</th>
         </tr>
       </thead>
@@ -40,6 +41,7 @@ onMounted(() => {
           :email="item.email"
           :phone="item.phone"
           :message="item.user_msg"
+          :updatedAt="item.updatedAt"
         />
       </tbody>
     </table>

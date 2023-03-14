@@ -29,6 +29,7 @@ onMounted(() => {
           <th class="border border-slate-300 p-2">Description</th>
           <th class="border border-slate-300 p-2">Image</th>
           <th class="border border-slate-300 p-2">Lang</th>
+          <th class="border border-slate-300 p-2">Date</th>
           <th class="border border-slate-300 p-2">Option</th>
         </tr>
       </thead>
@@ -41,6 +42,7 @@ onMounted(() => {
           :text="item.description"
           :imgUrl="'http://localhost:5000/' + item.img_url"
           :lang="item.lang"
+          :updatedAt="item.updatedAt"
         />
       </tbody>
     </table>

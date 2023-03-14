@@ -48,11 +48,18 @@ const props = defineProps({
   email: String,
   phone: String,
   message: String,
+  updatedAt: String,
 });
 </script>
 
 <template>
-  <Modal :active="showModal" :func="modalF" :id="props.id" :delF="deleteData" />
+  <Modal
+    :active="showModal"
+    :func="modalF"
+    :id="props.id"
+    :delF="deleteData"
+    storeF="fetchMessages"
+  />
   <tr>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.num }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.id }}</td>
@@ -61,6 +68,9 @@ const props = defineProps({
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.phone }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm">
       {{ props.message }}
+    </td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">
+      {{ props.updatedAt.slice(0, 10) }}, {{ props.updatedAt.slice(12, 16) }}
     </td>
     <td class="border border-slate-300 px-2 py-1 text-center">
       <button

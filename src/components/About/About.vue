@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import VueJsCounter from "vue-js-counter";
+</script>
 
 <template>
   <section id="about" class="py-10 sm:py-16">
@@ -29,9 +31,17 @@
           class="w-[50%] lg:max-w-[140px] flex mb-8 lg:mx-10 flex-col items-center"
         >
           <div
-            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full"
+            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full text-3xl md:text-4xl text-white font-[500]"
           >
-            <span class="text-3xl md:text-4xl text-white font-[500]">15+</span>
+            <!-- <span class="text-3xl md:text-4xl text-white font-[500]">15+</span> -->
+            <VueJsCounter
+              start="0"
+              end="15"
+              duration="3000"
+              thousand="."
+              decimal=","
+            ></VueJsCounter>
+            +
           </div>
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"
@@ -43,9 +53,17 @@
           class="w-[50%] lg:max-w-[140px] flex mb-8 lg:mx-10 flex-col items-center"
         >
           <div
-            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full"
+            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full text-3xl md:text-4xl text-white font-[500]"
           >
-            <span class="text-3xl md:text-4xl text-white font-[500]">10+</span>
+            <!-- <span class="text-3xl md:text-4xl text-white font-[500]">10+</span> -->
+            <VueJsCounter
+              start="0"
+              end="10"
+              duration="3000"
+              thousand="."
+              decimal=","
+            ></VueJsCounter>
+            +
           </div>
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"
@@ -57,9 +75,17 @@
           class="w-[50%] lg:max-w-[140px] flex lg:mx-10 flex-col items-center"
         >
           <div
-            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full"
+            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full text-3xl md:text-4xl text-white font-[500]"
           >
-            <span class="text-3xl md:text-4xl text-white font-[500]">100%</span>
+            <!-- <span class="text-3xl md:text-4xl text-white font-[500]">100%</span> -->
+            <VueJsCounter
+              start="0"
+              end="100"
+              duration="3000"
+              thousand="."
+              decimal=","
+            ></VueJsCounter>
+            %
           </div>
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"
@@ -71,9 +97,17 @@
           class="w-[50%] lg:max-w-[140px] flex lg:mx-10 flex-col items-center"
         >
           <div
-            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full"
+            class="about-circle w-[100px] h-[100px] md:w-[120px] md:h-[120px] bg-color flex items-center justify-center rounded-full text-3xl md:text-4xl text-white font-[500]"
           >
-            <span class="text-3xl md:text-4xl text-white font-[500]">5+</span>
+            <!-- <span class="text-3xl md:text-4xl text-white font-[500]">5+</span> -->
+            <VueJsCounter
+              start="0"
+              end="5"
+              duration="3000"
+              thousand="."
+              decimal=","
+            ></VueJsCounter>
+            +
           </div>
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"

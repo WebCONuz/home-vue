@@ -8,8 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^1.3.4",
     "vue": "^3.2.47",
+    "vue-js-counter": "^1.0.3",
     "vue-router": "^4.1.6",
     "vue3-toastify": "^0.1.2",
     "vuex": "^4.0.2"

@@ -46,6 +46,7 @@ const props = defineProps({
   name: String,
   email: String,
   isCreator: Boolean,
+  updatedAt: String,
 });
 </script>
 
@@ -65,6 +66,9 @@ const props = defineProps({
         class="bx bxs-square text-2xl text-red-700"
         v-else="props.isCreator"
       ></i>
+    </td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">
+      {{ props.updatedAt.slice(0, 10) }}, {{ props.updatedAt.slice(12, 16) }}
     </td>
     <td class="border border-slate-300 px-2 py-1 text-center">
       <div class="flex">

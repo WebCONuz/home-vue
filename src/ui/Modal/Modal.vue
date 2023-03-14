@@ -1,10 +1,20 @@
 <script setup>
+import { useStore } from "vuex";
+
+const store = useStore();
 const props = defineProps({
   id: Number,
   active: Boolean,
   func: Function,
   delF: Function,
+  storeF: String,
 });
+
+// function reloadWindow() {
+//   props.delF();
+//   let str = props.storeF;
+//   store.dispatch(`fetchMessages`);
+// }
 </script>
 
 <template>

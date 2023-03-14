@@ -23,6 +23,7 @@ const props = defineProps({
   imgUrl: String,
   job: String,
   lang: String,
+  updatedAt: String,
 });
 
 async function deleteData() {
@@ -71,6 +72,9 @@ async function deleteData() {
       >
         {{ props.lang }}
       </span>
+    </td>
+    <td class="border border-slate-300 px-2 py-1 text-sm">
+      {{ props.updatedAt.slice(0, 10) }}, {{ props.updatedAt.slice(12, 16) }}
     </td>
     <td class="border border-slate-300 px-2 py-1">
       <div class="flex">
