@@ -11,7 +11,7 @@ const props = defineProps({
     class="service__carousel--item flex flex-col border border-gray-200 py-6 px-3 rounded-md bg-white items-center relative overflow-hidden"
   >
     <div class="w-full">
-      <img :src="cardImg" alt="service" class="block mx-auto" />
+      <img :src="props.cardImg" alt="service" class="block mx-auto" />
     </div>
     <h3
       class="text-2xl lg:text-xl xl:text-2xl font-semibold mb-3 mt-6 text-center"
@@ -26,7 +26,7 @@ const props = defineProps({
     <button
       class="bg-color border-2 lg:text-sm xl:text-base border-[#58259e] py-2 px-4 rounded-md mt-3 hover:text-[#58259e] text-white duration-200"
     >
-      Kursga yozilish
+      Buyurtma berish
     </button>
   </div>
 </template>

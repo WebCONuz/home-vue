@@ -1,7 +1,12 @@
 <script setup>
 import { onMounted } from "vue";
+import { useStore } from "vuex";
+
 import cardImg from "@/assets/images/service/bot.png";
 import ServiceCard from "@/ui/ServiceCard/ServiceCard.vue";
+
+const { state } = useStore();
+const store = useStore();
 
 function serviceSlide() {
   const owl1 = $(".service__carousel");
@@ -27,7 +32,8 @@ function serviceSlide() {
   });
 }
 
-onMounted(() => {
+onMounted(async () => {
+  await store.dispatch("fetchServices");
   serviceSlide();
 });
 </script>
@@ -40,37 +46,21 @@ onMounted(() => {
       >
         Bizning xizmatlar
       </h2>
-      <div class="service__carousel owl-carousel w-full">
+      <div
+        v-if="state.getServices.services.length"
+        class="service__carousel owl-carousel w-full"
+      >
         <ServiceCard
-          title="Telegram Bot"
-          text="Ko'p yillik tajribaga ega dasturchilardan real loyihalarga
-              asoslangan amaliy kurslar."
-          :cardImg="cardImg"
+          v-for="(item, index) in state.getServices.services"
+          :title="item.title"
+          :text="item.description"
+          :cardImg="'http://localhost:5000/' + item.img_url"
         />
-        <ServiceCard
-          title="Telegram Bot"
-          text="Ko'p yillik tajribaga ega dasturchilardan real loyihalarga
-              asoslangan amaliy kurslar."
-          :cardImg="cardImg"
-        />
-        <ServiceCard
-          title="Telegram Bot"
-          text="Ko'p yillik tajribaga ega dasturchilardan real loyihalarga
-              asoslangan amaliy kurslar."
-          :cardImg="cardImg"
-        />
-        <ServiceCard
-          title="Telegram Bot"
-          text="Ko'p yillik tajribaga ega dasturchilardan real loyihalarga
-              asoslangan amaliy kurslar."
-          :cardImg="cardImg"
-        />
-        <ServiceCard
-          title="Telegram Bot"
-          text="Ko'p yillik tajribaga ega dasturchilardan real loyihalarga
-              asoslangan amaliy kurslar."
-          :cardImg="cardImg"
-        />
+      </div>
+
+      <div v-else class="bg-red-100 text-center text-2xl py-10 rounded-md">
+        <p class="text-2xl mb-4 text-gray-600">Hali serviceslar qo'shilmagan</p>
+        <i class="bx bx-task-x text-8xl text-gray-500"></i>
       </div>
     </div>
   </section>
