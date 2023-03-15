@@ -11,15 +11,15 @@ const store = useStore();
 const showedWork = ref({});
 
 function showWorkFunction(i = 0) {
-  console.log(i);
+  const allWorks = document.querySelectorAll(".numWorks");
+  allWorks.forEach((item) => item.classList.remove("active"));
+  allWorks[i].classList.add("active");
   showedWork.value = state.getWorks.works[i];
-  console.log(showedWork);
 }
 
 onMounted(async () => {
   await store.dispatch("fetchWorks");
   showWorkFunction();
-  console.log(state.getWorks.works);
 });
 </script>
 
@@ -42,7 +42,7 @@ onMounted(async () => {
               class="w-full relative top-0 -right-3 sm:left-0 z-10"
             />
             <img
-              :src="'http://localhost:5000' + showedWork.phone_img_url"
+              :src="showedWork.phone_img_url"
               alt="site-mobile"
               class="phone_bg absolute top-[2px] left-[28%] sm:left-[11%] w-[52px] h-[113px] rounded-xl sm:rounded-2xl sm:top-1 sm:w-[73px] sm:h-[165px] lg:top-2 lg:w-[95px] lg:h-[205px] xl:w-[120px] xl:h-[255px]"
             />
@@ -56,7 +56,7 @@ onMounted(async () => {
               class="w-full relative top-0 left-0 z-10"
             />
             <img
-              :src="'http://localhost:5000' + showedWork.pc_img_url"
+              :src="showedWork.pc_img_url"
               alt="site-pc"
               class="desctop_bg absolute top-2 left-[11%] w-[233px] h-[155px] sm:top-3 sm:w-[310px] sm:h-[200px] lg:top-4 lg:w-[390px] lg:h-[245px] xl:w-[455px] xl:h-[290px]"
             />
@@ -77,7 +77,7 @@ onMounted(async () => {
             <li
               v-for="item in state.getWorks.works.length"
               @click="(e) => showWorkFunction(item - 1)"
-              class="w-[25px] text-base sm:text-lg lg:text-xl sm:w-[30px] lg:w-[35px] h-[25px] sm:h-[30px] lg:h-[35px] hover:bg-[#58259e] hover:border-[#58259e] hover:text-white duration-200 cursor-pointer border border-gray-400 mr-2 rounded lg:rounded-md flex items-center justify-center"
+              class="numWorks w-[25px] text-base sm:text-lg lg:text-xl sm:w-[30px] lg:w-[35px] h-[25px] sm:h-[30px] lg:h-[35px] hover:bg-[#58259e] hover:border-[#58259e] hover:text-white duration-200 cursor-pointer border border-gray-400 mr-2 rounded lg:rounded-md flex items-center justify-center"
             >
               {{ item }}
             </li>

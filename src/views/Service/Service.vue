@@ -44,7 +44,7 @@ onMounted(() => {
           :id="item.id"
           :title="item.title"
           :text="item.description"
-          :imgUrl="'http://localhost:5000/' + item.img_url"
+          :imgUrl="item.img_url"
           :lang="item.lang"
           :updatedAt="item.updatedAt"
         />

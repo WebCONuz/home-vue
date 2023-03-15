@@ -53,7 +53,7 @@ onMounted(async () => {
           v-for="(item, index) in state.getServices.services"
           :title="item.title"
           :text="item.description"
-          :cardImg="'http://localhost:5000/' + item.img_url"
+          :cardImg="item.img_url"
         />
       </div>
 

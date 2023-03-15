@@ -45,7 +45,7 @@ onMounted(async () => {
       <div v-if="state.getTeam.team.length" class="team__slider owl-carousel">
         <TeamCard
           v-for="(item, index) in state.getTeam.team"
-          :teamImg="'http://localhost:5000/' + item.avatar_img"
+          :teamImg="item.avatar_img_url"
           :name="item.full_name"
           :job="item.job"
           :text="item.description"

@@ -45,8 +45,8 @@ onMounted(() => {
           :id="item.id"
           :title="item.title"
           :link="item.work_link"
-          :pcImg="'http://localhost:5000/' + item.pc_img_url"
-          :mobileImg="'http://localhost:5000/' + item.phone_img_url"
+          :pcImg="item.pc_img_url"
+          :mobileImg="item.phone_img_url"
           :lang="item.lang"
           :updatedAt="item.updatedAt"
         />
