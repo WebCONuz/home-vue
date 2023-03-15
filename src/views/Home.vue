@@ -1,4 +1,5 @@
 <script setup>
+import MainLoader from "../components/Loader/MainLoader.vue";
 import Intro from "@/components/Intro/Intro.vue";
 import About from "@/components/About/About.vue";
 import Services from "@/components/Services/Services.vue";
@@ -8,6 +9,7 @@ import Contact from "@/components/Contact/Contact.vue";
 </script>
 
 <template>
+  <MainLoader />
   <Intro />
   <About />
   <Services />

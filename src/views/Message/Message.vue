@@ -19,7 +19,11 @@ onMounted(() => {
     >
       Messages
     </h2>
-    <table id="service" class="table-auto border border-slate-400 w-full">
+    <table
+      v-if="state.getMessages.messages.length"
+      id="message-table"
+      class="table-auto border border-slate-400 w-full"
+    >
       <thead>
         <tr>
           <th class="border border-slate-300 p-2">Num</th>
@@ -45,6 +49,10 @@ onMounted(() => {
         />
       </tbody>
     </table>
+
+    <div v-else class="bg-red-100 text-center text-2xl py-10 rounded-md">
+      <p class="text-2xl mb-4 text-gray-600">Hali, fikrlar bildirilmagan</p>
+    </div>
   </div>
 </template>
 

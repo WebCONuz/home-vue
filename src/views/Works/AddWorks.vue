@@ -93,7 +93,7 @@ function addWorks(e) {
             id="work_link"
             type="text"
             class="w-full border border-gray-200 rounded-md py-2 px-4 focus:outline-none text-[#333333d8] focus:ring-4 focus:ring-violet-400"
-            placeholder="Description"
+            placeholder="Work link"
             name="work_link"
           />
         </label>
