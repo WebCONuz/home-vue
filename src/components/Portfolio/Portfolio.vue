@@ -1,9 +1,26 @@
 <script setup>
+import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
+
 import phoneImg from "@/assets/images/phone.png";
-import mobileWork from "@/assets/images/portfolio/mobile_work2.jpg";
 import pcImg from "@/assets/images/pc.png";
-import pcWork from "@/assets/images/portfolio/pc_work2.jpg";
 import bgAdventages from "@/assets/images/bg_adventages_1.png";
+
+const { state } = useStore();
+const store = useStore();
+const showedWork = ref({});
+
+function showWorkFunction(i = 0) {
+  console.log(i);
+  showedWork.value = state.getWorks.works[i];
+  console.log(showedWork);
+}
+
+onMounted(async () => {
+  await store.dispatch("fetchWorks");
+  showWorkFunction();
+  console.log(state.getWorks.works);
+});
 </script>
 
 <template>
@@ -14,7 +31,7 @@ import bgAdventages from "@/assets/images/bg_adventages_1.png";
       >
         Bizning loyihalar
       </h2>
-      <div class="relative">
+      <div v-if="state.getWorks.works.length" class="relative">
         <div class="flex items-center justify-center relative z-10">
           <div
             class="phone w-[64px] sm:w-[95px] lg:w-[120px] lg:ml-[55px] xl:w-[150px] xl:ml-[75px] relative"
@@ -25,7 +42,7 @@ import bgAdventages from "@/assets/images/bg_adventages_1.png";
               class="w-full relative top-0 -right-3 sm:left-0 z-10"
             />
             <img
-              :src="mobileWork"
+              :src="'http://localhost:5000' + showedWork.phone_img_url"
               alt="site-mobile"
               class="phone_bg absolute top-[2px] left-[28%] sm:left-[11%] w-[52px] h-[113px] rounded-xl sm:rounded-2xl sm:top-1 sm:w-[73px] sm:h-[165px] lg:top-2 lg:w-[95px] lg:h-[205px] xl:w-[120px] xl:h-[255px]"
             />
@@ -39,7 +56,7 @@ import bgAdventages from "@/assets/images/bg_adventages_1.png";
               class="w-full relative top-0 left-0 z-10"
             />
             <img
-              :src="pcWork"
+              :src="'http://localhost:5000' + showedWork.pc_img_url"
               alt="site-pc"
               class="desctop_bg absolute top-2 left-[11%] w-[233px] h-[155px] sm:top-3 sm:w-[310px] sm:h-[200px] lg:top-4 lg:w-[390px] lg:h-[245px] xl:w-[455px] xl:h-[290px]"
             />
@@ -48,38 +65,21 @@ import bgAdventages from "@/assets/images/bg_adventages_1.png";
         <div id="work-title" class="w-full mt-5 lg:w-[600px] lg:ml-[15%]">
           <a
             id="portfolio-link"
-            href="#"
+            :href="showedWork.work_link"
+            target="_blank"
             class="text-[#00282F] block font-semibold text-lg text-center sm:text-xl lg:text-left lg:text-2xl xl:text-3xl hover:text-[#58259e] duration-200"
           >
-            Online ta'lim platformasi.
+            {{ showedWork.title }}
           </a>
           <ul
             class="portfolio-nav flex justify-center lg:justify-start mt-2 sm:mt-4"
           >
             <li
-              class="active w-[25px] text-base sm:text-lg lg:text-xl sm:w-[30px] lg:w-[35px] h-[25px] sm:h-[30px] lg:h-[35px] hover:bg-[#58259e] hover:border-[#58259e] hover:text-white duration-200 cursor-pointer border border-gray-400 mr-2 rounded lg:rounded-md flex items-center justify-center"
-            >
-              1
-            </li>
-            <li
+              v-for="item in state.getWorks.works.length"
+              @click="(e) => showWorkFunction(item - 1)"
               class="w-[25px] text-base sm:text-lg lg:text-xl sm:w-[30px] lg:w-[35px] h-[25px] sm:h-[30px] lg:h-[35px] hover:bg-[#58259e] hover:border-[#58259e] hover:text-white duration-200 cursor-pointer border border-gray-400 mr-2 rounded lg:rounded-md flex items-center justify-center"
             >
-              2
-            </li>
-            <li
-              class="w-[25px] text-base sm:text-lg lg:text-xl sm:w-[30px] lg:w-[35px] h-[25px] sm:h-[30px] lg:h-[35px] hover:bg-[#58259e] hover:border-[#58259e] hover:text-white duration-200 cursor-pointer border border-gray-400 mr-2 rounded lg:rounded-md flex items-center justify-center"
-            >
-              3
-            </li>
-            <li
-              class="w-[25px] text-base sm:text-lg lg:text-xl sm:w-[30px] lg:w-[35px] h-[25px] sm:h-[30px] lg:h-[35px] hover:bg-[#58259e] hover:border-[#58259e] hover:text-white duration-200 cursor-pointer border border-gray-400 mr-2 rounded lg:rounded-md flex items-center justify-center"
-            >
-              4
-            </li>
-            <li
-              class="w-[25px] text-base sm:text-lg lg:text-xl sm:w-[30px] lg:w-[35px] h-[25px] sm:h-[30px] lg:h-[35px] hover:bg-[#58259e] hover:border-[#58259e] hover:text-white duration-200 cursor-pointer border border-gray-400 mr-2 rounded lg:rounded-md flex items-center justify-center"
-            >
-              5
+              {{ item }}
             </li>
           </ul>
         </div>
@@ -93,6 +93,11 @@ import bgAdventages from "@/assets/images/bg_adventages_1.png";
           alt="bg-adventages"
           class="hidden absolute z-0 lg:right-[7%] lg:block lg:-top-[7%] lg:w-[276px] xl:-top-[15%]"
         />
+      </div>
+
+      <div v-else class="bg-red-100 text-center text-2xl py-10 rounded-md">
+        <p class="text-2xl mb-4 text-gray-600">Hali, ishlar qo'shilmagan</p>
+        <i class="bx bxs-box text-8xl text-gray-500"></i>
       </div>
     </div>
   </section>

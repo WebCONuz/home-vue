@@ -1,7 +1,11 @@
 <script setup>
 import { onMounted } from "vue";
-import teamImg from "@/assets/images/man.png";
+import { useStore } from "vuex";
+
 import TeamCard from "@/ui/TeamCard/TeamCard.vue";
+
+const { state } = useStore();
+const store = useStore();
 
 function teamSlide() {
   const owl2 = $(".team__slider");
@@ -24,7 +28,8 @@ function teamSlide() {
   });
 }
 
-onMounted(() => {
+onMounted(async () => {
+  await store.dispatch("fetchTeam");
   teamSlide();
 });
 </script>
@@ -37,37 +42,21 @@ onMounted(() => {
       >
         Bizning Jamoa
       </h2>
-      <div class="team__slider owl-carousel">
+      <div v-if="state.getTeam.team.length" class="team__slider owl-carousel">
         <TeamCard
-          :teamImg="teamImg"
-          name="Axror Jumayev"
-          job="Team Lead"
-          text="20+ yillik tajribaga ega fullstack dasturchi."
+          v-for="(item, index) in state.getTeam.team"
+          :teamImg="'http://localhost:5000/' + item.avatar_img"
+          :name="item.full_name"
+          :job="item.job"
+          :text="item.description"
         />
-        <TeamCard
-          :teamImg="teamImg"
-          name="Axror Jumayev"
-          job="Team Lead"
-          text="20+ yillik tajribaga ega fullstack dasturchi."
-        />
-        <TeamCard
-          :teamImg="teamImg"
-          name="Axror Jumayev"
-          job="Team Lead"
-          text="20+ yillik tajribaga ega fullstack dasturchi."
-        />
-        <TeamCard
-          :teamImg="teamImg"
-          name="Axror Jumayev"
-          job="Team Lead"
-          text="20+ yillik tajribaga ega fullstack dasturchi."
-        />
-        <TeamCard
-          :teamImg="teamImg"
-          name="Axror Jumayev"
-          job="Team Lead"
-          text="20+ yillik tajribaga ega fullstack dasturchi."
-        />
+      </div>
+
+      <div v-else class="bg-red-100 text-center text-2xl py-10 rounded-md">
+        <p class="text-2xl mb-4 text-gray-600">
+          Hali Jamoa a'zolari qo'shilmagan
+        </p>
+        <i class="bx bxs-user-x text-8xl text-gray-500"></i>
       </div>
     </div>
   </section>

@@ -2,7 +2,6 @@
 import { onMounted } from "vue";
 import { useStore } from "vuex";
 
-import cardImg from "@/assets/images/service/bot.png";
 import ServiceCard from "@/ui/ServiceCard/ServiceCard.vue";
 
 const { state } = useStore();
