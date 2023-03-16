@@ -40,6 +40,32 @@ async function deleteData() {
   }
 }
 
+async function activeteAdmin() {
+  try {
+    const token = window.localStorage.getItem("token");
+    const res = await axios.post(
+      `/admin/${props.id}`,
+      {},
+      {
+        headers: {
+          Authorization: `Barear ${token}`,
+        },
+      }
+    );
+    console.log(res);
+    if (res.status === 200) {
+      toast.success(`Activeted: ${props.id}`);
+      router.go(0);
+    } else {
+      console.log(res);
+    }
+  } catch (err) {
+    if (err.response && err.response.status === 403) {
+      toast.error(err.response.data.message);
+    }
+  }
+}
+
 const props = defineProps({
   num: Number,
   id: Number,
@@ -58,14 +84,16 @@ const props = defineProps({
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.name }}</td>
     <td class="border border-slate-300 px-2 py-1 text-sm">{{ props.email }}</td>
     <td class="border border-slate-300 px-2 py-1 text-center">
-      <i
-        class="bx bxs-check-square text-2xl text-green-700"
-        v-if="props.isCreator"
-      ></i>
-      <i
-        class="bx bxs-square text-2xl text-red-700"
-        v-else="props.isCreator"
-      ></i>
+      <div @click="activeteAdmin">
+        <i
+          class="bx bxs-check-square text-2xl text-green-700"
+          v-if="props.isCreator"
+        ></i>
+        <i
+          class="bx bxs-square text-2xl text-red-700"
+          v-else="props.isCreator"
+        ></i>
+      </div>
     </td>
     <td class="border border-slate-300 px-2 py-1 text-sm">
       {{ props.updatedAt.slice(0, 10) }}, {{ props.updatedAt.slice(12, 16) }}

@@ -105,7 +105,7 @@ async function editTeam(e) {
           toast.success(`Updated team member: ${id}`);
           router.push({ path: "/admin/team" });
         } else {
-          console.log(response);
+          console.log("Error", response);
         }
       } catch (err) {
         if (err.response.status === 403) {
