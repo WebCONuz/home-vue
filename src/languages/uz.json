@@ -1,0 +1,47 @@
+{
+  "header": {
+    "menu": [
+      "Bosh sahifa",
+      "Biz haqimizda",
+      "Xizmatlar",
+      "Loyihalar",
+      "Jamoamiz",
+      "Aloqa"
+    ]
+  },
+  "intro": {
+    "title": "Biznesingiz uchun Foydali IT yechimlar",
+    "link": "Buyurtma berish"
+  },
+  "about": {
+    "title": "Biz haqimizda",
+    "textTitle": "HomeDev",
+    "text": "Biz internet-resurslarni rivojlantirish va biznes tizimlarini avtomatlashtiruvchi IT maxsulotlar yaratish bilan shug'ullananiz. Shu bilan bir qatorda junior pozitsiyasidagi dasturchilarni real loyihalarda amaliyot qildirish orqali middle pozitsiyaga ko'tarish ham bizning ustivor vazifalarimizdan biridir.",
+    "stat1": "Amaliyotchilar soni",
+    "stat2": "Professional dasturchilar",
+    "stat3": "Sifat kafolati",
+    "stat4": "Loyihalar"
+  },
+  "services": {
+    "title": "Bizning xizmatlar",
+    "empty": "Hali serviceslar qo'shilmagan",
+    "button": "Buyurtma berish"
+  },
+  "project": {
+    "title": "Bizning loyihalar",
+    "empty": "Hali proyektlar qo'shilmagan"
+  },
+  "team": {
+    "title": "Bizning Jamoa",
+    "empty": "Hali jamoa qo'shilmagan"
+  },
+  "contact": {
+    "title": "Aloqa",
+    "formTitle": "Xabar yuborish",
+    "namePlaceholder": "Ism-sharif",
+    "emailPlaceholder": "Email",
+    "phonePlaceholder": "Telefon: 90-123-45-67",
+    "messagePlaceholder": "Xabarnoma",
+    "button": "Yuborish"
+  }
+}

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+
 import UserLayout from "@/layouts/UserLayout.vue";
 import Login from "@/layouts/Login.vue";
 import AdminLayout from "@/layouts/AdminLayout.vue";

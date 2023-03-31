@@ -1,4 +1,7 @@
 <script setup>
+import { useI18n } from "vue-i18n";
+const { t } = useI18n({ useScope: "global" });
+
 const props = defineProps({
   title: String,
   text: String,
@@ -27,7 +30,7 @@ const props = defineProps({
       href="/#contact"
       class="bg-color inline-block border-2 lg:text-sm xl:text-base border-[#58259e] py-2 px-4 rounded-md mt-3 hover:text-[#58259e] text-white duration-200"
     >
-      Buyurtma berish
+      {{ t("services.button") }}
     </a>
   </div>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import logoImg from "../../assets/images/homedev.png";
 import burger from "../../assets/icons/menu.svg";
 import close from "../../assets/icons/close.png";
@@ -26,6 +27,14 @@ function scrollHeader() {
   } else {
     scrolling.value = true;
   }
+}
+
+// Change Language
+const { t, locale } = useI18n({ useScope: "global" });
+function changeLang(e) {
+  let newLang = e.target.getAttribute("lang-data");
+  locale.value = newLang;
+  localStorage.setItem("lang", newLang);
 }
 
 onMounted(() => {
@@ -64,30 +73,38 @@ onMounted(() => {
               @click="showLang"
               class="lang-element lang-area flex items-center"
             >
-              <span class="lang-element text-xl mr-2" lang-data="en">Lang</span>
-              <!-- <img :src="uzb" alt="lang-flag" class="lang-element w-6" /> -->
+              <span class="lang-element text-xl mr-2">Lang</span>
             </div>
             <ul
               v-if="isOpenLang"
               class="langList absolute top-[45px] right-0 z-20 w-[100px] p-1 shadow-lg flex-col bg-white rounded-lg duration-200"
             >
+              <!-- lang-1 -->
               <li
+                @click="changeLang"
+                lang-data="uz"
                 class="flex items-center hover:text-[#58259e] hover:bg-[#57259e20] duration-200 px-3 py-[6px] rounded-md"
               >
                 <span class="text-lg mr-2" lang-data="uz">Uzb</span>
-                <img :src="uzb" alt="lang-flag" class="w-6" />
+                <img :src="uzb" alt="lang-flag" class="w-6" lang-data="uz" />
               </li>
+              <!-- lang-2 -->
               <li
+                @click="changeLang"
+                lang-data="ru"
                 class="flex items-center hover:text-[#58259e] hover:bg-[#57259e20] duration-200 px-3 py-[6px] rounded-md"
               >
                 <span class="text-lg mr-2" lang-data="ru">Rus</span>
-                <img :src="rus" alt="lang-flag" class="w-6" />
+                <img :src="rus" alt="lang-flag" class="w-6" lang-data="ru" />
               </li>
+              <!-- lang-3 -->
               <li
+                @click="changeLang"
+                lang-data="en"
                 class="flex items-center hover:text-[#58259e] hover:bg-[#57259e20] duration-200 px-3 py-[6px] rounded-md"
               >
                 <span class="text-lg mr-2" lang-data="en">Eng</span>
-                <img :src="eng" alt="lang-flag" class="w-6" />
+                <img :src="eng" alt="lang-flag" class="w-6" lang-data="en" />
               </li>
             </ul>
           </div>
@@ -116,48 +133,48 @@ onMounted(() => {
                 hidden: !isOpenMenu,
                 'active-top': scrolling,
               }"
-              class="menuList fixed top-[80.5px] sm:top-[91px] right-0 z-20 w-full p-4 md:p-1 shadow-lg flex-col bg-white md:rounded-lg duration-200 md:w-[170px] md:absolute md:top-[47px] md:right-0"
+              class="menuList fixed top-[80.5px] sm:top-[91px] right-0 z-20 w-full p-4 md:p-1 shadow-lg flex-col bg-white md:rounded-lg duration-200 md:w-[180px] md:absolute md:top-[47px] md:right-0"
             >
               <li>
                 <a
                   href="/#intro"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
-                  >Home</a
+                  >{{ t("header.menu[0]") }}</a
                 >
               </li>
               <li>
                 <a
                   href="/#about"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
-                  >About us</a
+                  >{{ t("header.menu[1]") }}</a
                 >
               </li>
               <li>
                 <a
                   href="/#service"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
-                  >Services</a
+                  >{{ t("header.menu[2]") }}</a
                 >
               </li>
               <li>
                 <a
                   href="/#portfolio"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
-                  >Portfolio</a
+                  >{{ t("header.menu[3]") }}</a
                 >
               </li>
               <li>
                 <a
                   href="/#team"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
-                  >Our Team</a
+                  >{{ t("header.menu[4]") }}</a
                 >
               </li>
               <li>
                 <a
                   href="/#contact"
                   class="hover:text-[#58259e] hover:bg-[#57259e20] duration-200 text-xl px-10 md:px-3 py-4 md:py-2 block rounded-md"
-                  >Contact</a
+                  >{{ t("header.menu[5]") }}</a
                 >
               </li>
               <li>

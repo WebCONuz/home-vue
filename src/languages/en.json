@@ -1,0 +1,40 @@
+{
+  "header": {
+    "menu": ["Home", "About us", "Services", "Portfolio", "Our Team", "Contact"]
+  },
+  "intro": {
+    "title": "Useful IT solutions for your business",
+    "link": "Place an order"
+  },
+  "about": {
+    "title": "About us",
+    "textTitle": "HomeDev",
+    "text": "We develop Internet resources and create IT products that automate business systems. At the same time, it is one of our priority tasks to raise junior programmers to middle positions by practicing in real projects.",
+    "stat1": "Number of practitioners",
+    "stat2": "Professional programmers",
+    "stat3": "Quality assurance",
+    "stat4": "Projects"
+  },
+  "services": {
+    "title": "Our services",
+    "empty": "No services added yet",
+    "button": "Place an order"
+  },
+  "project": {
+    "title": "Our projects",
+    "empty": "No projects added yet"
+  },
+  "team": {
+    "title": "Our Team",
+    "empty": "No team added yet"
+  },
+  "contact": {
+    "title": "Contact",
+    "formTitle": "Send a message",
+    "namePlaceholder": "Fullname",
+    "emailPlaceholder": "Email",
+    "phonePlaceholder": "Phone: 90-123-45-67",
+    "messagePlaceholder": "Message",
+    "button": "Sending"
+  }
+}

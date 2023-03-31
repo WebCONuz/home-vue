@@ -2,8 +2,10 @@
 import { ref } from "vue";
 import { useStore } from "vuex";
 import { toast } from "vue3-toastify";
+import { useI18n } from "vue-i18n";
 
 const store = useStore();
+const { t } = useI18n({ useScope: "global" });
 
 const full_name = ref("");
 const email = ref("");
@@ -50,46 +52,46 @@ function addMessage(e) {
       <h2
         class="font-bold mb-5 sm:mb-6 md:mb-7 lg:mb-8 xl:mb-9 2xl:mb-10 text-center leading-[45px] text-[30px] md:leading-[50px] md:text-[35px] lg:leading-[60px] lg:text-[42px] xl:text-5xl xl:leading-[70px]"
       >
-        Aloqa
+        {{ t("contact.title") }}
       </h2>
       <div class="flex flex-col md:flex-row gap-8">
         <div class="w-full md:w-1/2 p-3 md:p-5 bg-white rounded-lg shadow-lg">
           <form @submit="addMessage">
             <h3 class="text-xl md:text-2xl font-semibold text-[#00282F] mb-4">
-              Xabar yuborish
+              {{ t("contact.formTitle") }}
             </h3>
             <input
               v-model="full_name"
               type="text"
               id="fullname"
               class="w-full mb-3 md:mb-4 py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
-              placeholder="Ism-sharif"
+              :placeholder="t('contact.namePlaceholder')"
             />
             <input
               v-model="email"
               type="email"
               id="email"
               class="w-full mb-3 md:mb-4 py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
-              placeholder="Email"
+              :placeholder="t('contact.emailPlaceholder')"
             />
             <input
               v-model="phone"
               type="text"
               id="phone"
               class="w-full mb-3 md:mb-4 py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
-              placeholder="Phone: 90-123-45-67"
+              :placeholder="t('contact.phonePlaceholder')"
             />
             <textarea
               v-model="user_msg"
               class="w-full resize-none mb-3 md:mb-4 h-[120px] md:h-[80px] py-2 px-4 placeholder:text-[#00282f63] focus:outline-0 focus:ring focus:ring-[#57259e4f] shadow-md rounded-md border border-gray-200"
-              placeholder="Xabarnoma"
+              :placeholder="t('contact.messagePlaceholder')"
             ></textarea>
             <div class="flex justify-end">
               <button
                 class="bg-color py-1 px-5 md:mr-10 rounded-md md:rounded-3xl text-white text-base duration-200"
                 type="submit"
               >
-                Yuborish
+                {{ t("contact.button") }}
               </button>
             </div>
           </form>

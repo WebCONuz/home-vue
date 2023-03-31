@@ -1,6 +1,8 @@
 <script setup>
 import adventages from "@/assets/images/bg_adventages_1.png";
 import netbook from "@/assets/images/netbook2.png";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n({ useScope: "global" });
 </script>
 
 <template>
@@ -22,14 +24,13 @@ import netbook from "@/assets/images/netbook2.png";
         <h1
           class="font-bold mb-6 pt-12 sm:mt-0 sm:mb-28 text-center md:text-left lg:mb-36 leading-[45px] text-[30px] md:leading-[50px] md:text-[35px] lg:leading-[60px] lg:text-[42px] xl:text-5xl xl:leading-[70px]"
         >
-          Biznesingiz uchun <span class="text-violet-800">Foydali</span> IT
-          yechimlar
+          {{ t("intro.title") }}
         </h1>
         <a href="#contact">
           <button
             class="order-btn py-[6px] px-6 sm:py-[10px] sm:px-9 rounded-3xl bg-color text-white text-lg sm:text-xl duration-200 mx-auto block md:mx-0"
           >
-            Buyurtma berish
+            {{ t("intro.link") }}
           </button>
         </a>
         <img

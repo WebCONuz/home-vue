@@ -1,5 +1,7 @@
 <script setup>
 import VueJsCounter from "vue-js-counter";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n({ useScope: "global" });
 </script>
 
 <template>
@@ -9,17 +11,16 @@ import VueJsCounter from "vue-js-counter";
         <h2
           class="font-bold text-center mb-4 lg:mb-6 xl:mb-8 max-w-[738px] mx-auto leading-[45px] text-[30px] md:leading-[50px] md:text-[35px] lg:leading-[60px] lg:text-[42px] xl:text-5xl xl:leading-[70px]"
         >
-          Biz haqimizda
+          <!-- Biz haqimizda -->
+          {{ t("about.title") }}
         </h2>
         <p
           class="text-[#00282F] font-[500] max-w-[738px] mx-auto md:text-xl md:leading-7 lg:text-2xl lg:leading-8 text-center"
         >
-          <span class="text-violet-800 font-semibold">HomeDev</span> - Biz
-          internet-resurslarni rivojlantirish va biznes tizimlarini
-          avtomatlashtiruvchi IT maxsulotlar yaratish bilan shug'ullananiz. Shu
-          bilan bir qatorda junior pozitsiyasidagi dasturchilarni real
-          loyihalarda amaliyot qildirish orqali middle pozitsiyaga ko'tarish ham
-          bizning ustivor vazifalarimizdan biridir.
+          <span class="text-violet-800 font-semibold">
+            {{ t("about.textTitle") }}
+          </span>
+          - {{ t("about.text") }}
         </p>
       </div>
       <div
@@ -46,7 +47,7 @@ import VueJsCounter from "vue-js-counter";
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"
           >
-            Amaliyotchilar soni
+            {{ t("about.stat1") }}
           </p>
         </div>
         <div
@@ -68,7 +69,7 @@ import VueJsCounter from "vue-js-counter";
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"
           >
-            Professional dasturchilar
+            {{ t("about.stat2") }}
           </p>
         </div>
         <div
@@ -90,7 +91,7 @@ import VueJsCounter from "vue-js-counter";
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"
           >
-            Sifat kafolati
+            {{ t("about.stat3") }}
           </p>
         </div>
         <div
@@ -112,7 +113,7 @@ import VueJsCounter from "vue-js-counter";
           <p
             class="text-sm sm:text-base md:text-xl text-center leading-6 md:leading-8 text-[#00282F] font-[500] mt-3 sm:mt-5 lg:mt-7"
           >
-            Loyihalar
+            {{ t("about.stat4") }}
           </p>
         </div>
       </div>

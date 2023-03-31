@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted } from "vue";
 import { useStore } from "vuex";
+import { useI18n } from "vue-i18n";
 
 import ServiceCard from "@/ui/ServiceCard/ServiceCard.vue";
 
 const { state } = useStore();
 const store = useStore();
+const { t } = useI18n({ useScope: "global" });
 
 function serviceSlide() {
   const owl1 = $(".service__carousel");
@@ -43,7 +45,7 @@ onMounted(async () => {
       <h2
         class="font-bold mb-5 sm:mb-6 md:mb-7 lg:mb-8 xl:mb-9 2xl:mb-10 text-center leading-[45px] text-[30px] md:leading-[50px] md:text-[35px] lg:leading-[60px] lg:text-[42px] xl:text-5xl xl:leading-[70px]"
       >
-        Bizning xizmatlar
+        {{ t("services.title") }}
       </h2>
       <div
         v-if="state.getServices.services.length"
@@ -58,7 +60,7 @@ onMounted(async () => {
       </div>
 
       <div v-else class="bg-red-100 text-center text-2xl py-10 rounded-md">
-        <p class="text-2xl mb-4 text-gray-600">Hali serviceslar qo'shilmagan</p>
+        <p class="text-2xl mb-4 text-gray-600">{{ t("services.empty") }}</p>
         <i class="bx bx-task-x text-8xl text-gray-500"></i>
       </div>
     </div>

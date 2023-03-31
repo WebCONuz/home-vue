@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
+import { useI18n } from "vue-i18n";
 
 import phoneImg from "@/assets/images/phone.png";
 import pcImg from "@/assets/images/pc.png";
 import bgAdventages from "@/assets/images/bg_adventages_1.png";
 
+const { t } = useI18n({ useScope: "global" });
 const { state } = useStore();
 const store = useStore();
 const showedWork = ref({});
@@ -29,7 +31,7 @@ onMounted(async () => {
       <h2
         class="font-bold mb-5 sm:mb-6 md:mb-7 lg:mb-8 xl:mb-9 2xl:mb-10 text-center leading-[45px] text-[30px] md:leading-[50px] md:text-[35px] lg:leading-[60px] lg:text-[42px] xl:text-5xl xl:leading-[70px]"
       >
-        Bizning loyihalar
+        {{ t("project.title") }}
       </h2>
       <div v-if="state.getWorks.works.length" class="relative">
         <div class="flex items-center justify-center relative z-10">
@@ -96,7 +98,7 @@ onMounted(async () => {
       </div>
 
       <div v-else class="bg-red-100 text-center text-2xl py-10 rounded-md">
-        <p class="text-2xl mb-4 text-gray-600">Hali, ishlar qo'shilmagan</p>
+        <p class="text-2xl mb-4 text-gray-600">{{ t("project.empty") }}</p>
         <i class="bx bxs-box text-8xl text-gray-500"></i>
       </div>
     </div>

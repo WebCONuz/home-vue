@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted } from "vue";
 import { useStore } from "vuex";
+import { useI18n } from "vue-i18n";
 
 import TeamCard from "@/ui/TeamCard/TeamCard.vue";
 
 const { state } = useStore();
 const store = useStore();
+const { t } = useI18n({ useScope: "global" });
 
 function teamSlide() {
   const owl2 = $(".team__slider");
@@ -40,7 +42,7 @@ onMounted(async () => {
       <h2
         class="font-bold mb-3 sm:mb-6 md:mb-7 lg:mb-8 xl:mb-9 2xl:mb-10 text-center leading-[45px] text-[30px] md:leading-[50px] md:text-[35px] lg:leading-[60px] lg:text-[42px] xl:text-5xl xl:leading-[70px]"
       >
-        Bizning Jamoa
+        {{ t("team.title") }}
       </h2>
       <div v-if="state.getTeam.team.length" class="team__slider owl-carousel">
         <TeamCard
@@ -54,7 +56,7 @@ onMounted(async () => {
 
       <div v-else class="bg-red-100 text-center text-2xl py-10 rounded-md">
         <p class="text-2xl mb-4 text-gray-600">
-          Hali Jamoa a'zolari qo'shilmagan
+          {{ t("team.empty") }}
         </p>
         <i class="bx bxs-user-x text-8xl text-gray-500"></i>
       </div>
